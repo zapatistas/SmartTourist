@@ -1,0 +1,985 @@
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 2; ]
+import Toybox.WatchUi;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 3; ]
+import Toybox.Sensor;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 4; ]
+import Toybox.Communications;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 5; ]
+import Toybox.Position;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 6; ]
+import Toybox.System;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 7; ]
+import Toybox.Communications;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 9; @position = 4; ]
+var hr;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 10; @position = 4; ]
+var accel;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 11; @position = 4; ]
+var magno;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 12; @position = 4; ]
+var temp;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 13; @position = 4; ]
+var lat;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 14; @position = 4; ]
+var longit;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 15; @position = 4; ]
+var altit;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 16; @position = 4; ]
+var oxygen;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 17; @position = 4; ]
+var lastHr;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 20; ]
+class CommListener extends Communications.ConnectionListener{
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 20; ]
+    <init> {
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 20; ]
+    static
+    <init> {
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 21; ]
+    function initialize() as Void {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_21_26_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 22 8 ]
+        %tmp.1 = getm $.Toybox.Communications;
+        %tmp.2 = getv %tmp.1 :ConnectionListener;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_21_26_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 25; ]
+    function onComplete() {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_25_26_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 26 8 ]
+        %tmp.1 = getm $.Toybox.System;
+        %tmp.2 = getv function %tmp.1 :println;
+        %tmp.3 = "Transmit Complete";
+        invoke %tmp.1 %tmp.2(%tmp.3);
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_25_26_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 29; ]
+    function onError() {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_29_23_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 30 8 ]
+        %tmp.1 = getm $.Toybox.System;
+        %tmp.2 = getv function %tmp.1 :println;
+        %tmp.3 = "Transmit Failed";
+        invoke %tmp.1 %tmp.2(%tmp.3);
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_29_23_stop:
+    }
+}
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 34; ]
+class SmartTouristDelegate extends WatchUi.BehaviorDelegate{
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 34; ]
+    <init> {
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 34; ]
+    static
+    <init> {
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 35; @position = 8; ]
+    var view;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 36; @position = 8; ]
+    var isRunning;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 37; @position = 8; ]
+    var timer;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 38; @position = 8; ]
+    var listener;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 41; ]
+    function initialize(view) as Void {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_41_30_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 42 8 ]
+        %tmp.2 = lgetv %view;
+        putv self :view %tmp.2;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 43 8 ]
+        %tmp.3 = false;
+        putv self :isRunning %tmp.3;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 44 8 ]
+        %tmp.7 = getv ? :CommListener;
+        %tmp.4 = newc %tmp.7 ();
+        putv self :listener %tmp.4;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 45 8 ]
+        %tmp.11 = getv ? :SmartTouristHub;
+        %tmp.12 = 2000;
+        %tmp.13 = lgetv %self;
+        %tmp.14 = getv %tmp.13 :listener;
+        %tmp.8 = newc %tmp.11 (%tmp.12, %tmp.14);
+        putv self :timer %tmp.8;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 46 8 ]
+        %tmp.16 = getv ? :BehaviorDelegate;
+        %tmp.17 = getv function %tmp.16 :initialize;
+        invoke %tmp.16 %tmp.17();
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_41_30_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 49; ]
+    function onKey(keyEvent) {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_49_28_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 50 8 ]
+        [ "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_49_28_start" "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_49_28_stop" ]
+        %key.1 = local;
+        %tmp.1 = lgetv %keyEvent;
+        %tmp.2 = getv function %tmp.1 :getKey;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %key.1 %tmp.3;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 51 8 ]
+        [ "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_49_28_start" "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_49_28_stop" ]
+        %keyType.2 = local;
+        %tmp.4 = lgetv %keyEvent;
+        %tmp.5 = getv function %tmp.4 :getType;
+        %tmp.6 = invoke %tmp.4 %tmp.5();
+        lputv %keyType.2 %tmp.6;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 53 8 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_8_if_stmt:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_12_begin:
+        %tmp.8 = lgetv %key.1;
+        %tmp.9 = getm $.Toybox.WatchUi;
+        %tmp.10 = getv %tmp.9 :KEY_ENTER;
+        %tmp.11 = eq %tmp.8 %tmp.10;
+        %tmp.12 = dup %tmp.11;
+        bf %tmp.12 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_41_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_41_true:
+        %tmp.14 = lgetv %keyType.2;
+        %tmp.15 = getm $.Toybox.WatchUi;
+        %tmp.16 = getv %tmp.15 :PRESS_TYPE_ACTION;
+        %tmp.17 = eq %tmp.14 %tmp.16;
+        %tmp.18 = and %tmp.11 %tmp.17;
+        push %tmp.18;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_41_end:
+        %tmp.19 = phi [%tmp.12 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_12_begin] [%tmp.18 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_41_true] [%tmp.19 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_41_end];
+        bf %tmp.19 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_8_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_8_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_78_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 54 12 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_54_12_if_stmt:
+        %tmp.20 = lgetv %self;
+        %tmp.21 = getv %tmp.20 :isRunning;
+        %tmp.22 = not %tmp.21;
+        bf %tmp.22 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_54_12_if_false;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_54_12_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_54_32_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 56 16 ]
+        %tmp.23 = getm $.Toybox.Sensor;
+        %tmp.24 = getv function %tmp.23 :enableSensorType;
+        %tmp.25 = getm $.Toybox.Sensor;
+        %tmp.26 = getv %tmp.25 :SENSOR_HEARTRATE;
+        invoke %tmp.23 %tmp.24(%tmp.26);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 57 16 ]
+        %tmp.27 = getm $.Toybox.Sensor;
+        %tmp.28 = getv function %tmp.27 :enableSensorType;
+        %tmp.29 = getm $.Toybox.Sensor;
+        %tmp.30 = getv %tmp.29 :SENSOR_PULSE_OXIMETRY;
+        invoke %tmp.27 %tmp.28(%tmp.30);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 58 16 ]
+        %tmp.31 = getm $.Toybox.Sensor;
+        %tmp.32 = getv function %tmp.31 :enableSensorType;
+        %tmp.33 = getm $.Toybox.Sensor;
+        %tmp.34 = getv %tmp.33 :SENSOR_TEMPERATURE;
+        invoke %tmp.31 %tmp.32(%tmp.34);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 59 16 ]
+        %tmp.35 = getm $.Toybox.Sensor;
+        %tmp.36 = getv function %tmp.35 :enableSensorEvents;
+        %tmp.37 = self;
+        %tmp.38 = getv function %tmp.37 :method;
+        %tmp.40 = const :setData;
+        %tmp.41 = invoke %tmp.37 %tmp.38(%tmp.40);
+        invoke %tmp.35 %tmp.36(%tmp.41);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 61 16 ]
+        [ "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_54_32_start" "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_54_32_stop" ]
+        %options.3 = local;
+        %tmp.42 = newd 1;
+        %tmp.44 = const :acquisitionType;
+        %tmp.45 = getm $.Toybox.Position;
+        %tmp.46 = getv %tmp.45 :LOCATION_CONTINUOUS;
+        %tmp.47 = dup %tmp.42;
+        %tmp.48 = aputv %tmp.47 %tmp.44 %tmp.46;
+        lputv %options.3 %tmp.48;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 65 16 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_65_16_if_stmt:
+        %tmp.50 = getm $.Toybox.Position;
+        %tmp.52 = const :POSITIONING_MODE_AVIATION;
+        %tmp.53 = canhazplz %tmp.50 %tmp.52;
+        bf %tmp.53 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_65_16_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_65_16_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_65_61_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 66 20 ]
+        %tmp.54 = lgetv %options.3;
+        %tmp.55 = getm $.Toybox.Position;
+        %tmp.56 = getv %tmp.55 :POSITIONING_MODE_AVIATION;
+        %tmp.58 = const :mode;
+        aputv %tmp.54 %tmp.58 %tmp.56;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_65_61_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_65_16_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_65_16_if_end:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 69 16 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_69_16_if_stmt:
+        %tmp.60 = getm $.Toybox.Position;
+        %tmp.62 = const :CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5;
+        %tmp.63 = canhazplz %tmp.60 %tmp.62;
+        bf %tmp.63 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_69_16_if_false;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_69_16_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_69_82_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 70 20 ]
+        %tmp.64 = lgetv %options.3;
+        %tmp.66 = const :CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5;
+        %tmp.68 = const :configuration;
+        aputv %tmp.64 %tmp.68 %tmp.66;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_69_82_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_69_16_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_69_16_if_false:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 71 23 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_71_23_if_stmt:
+        %tmp.70 = getm $.Toybox.Position;
+        %tmp.71 = as %tmp.70 { (!interface { var CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5; }) };
+        %tmp.73 = const :CONSTELLATION_GPS_GLONASS;
+        %tmp.74 = canhazplz %tmp.71 %tmp.73;
+        bf %tmp.74 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_71_23_if_false;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_71_23_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_71_68_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 72 20 ]
+        %tmp.75 = lgetv %options.3;
+        %tmp.76 = newa 2;
+        %tmp.77 = getm $.Toybox.Position;
+        %tmp.78 = getv %tmp.77 :CONSTELLATION_GPS;
+        %tmp.79 = dup %tmp.76;
+        %tmp.80 = aputv %tmp.79 0 %tmp.78;
+        %tmp.81 = getm $.Toybox.Position;
+        %tmp.82 = getv %tmp.81 :CONSTELLATION_GLONASS;
+        %tmp.83 = dup %tmp.80;
+        %tmp.84 = aputv %tmp.83 1 %tmp.82;
+        %tmp.86 = const :constellations;
+        aputv %tmp.75 %tmp.86 %tmp.84;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_71_68_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_71_23_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_71_23_if_false:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_73_23_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 74 20 ]
+        %tmp.87 = getm $.Toybox.Position;
+        %tmp.88 = getv %tmp.87 :LOCATION_CONTINUOUS;
+        lputv %options.3 %tmp.88;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_73_23_stop:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_71_23_if_end:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_69_16_if_end:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 78 16 ]
+        try @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_beginTry @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_endTry @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_catch @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_finally;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_beginTry:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_19_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 79 20 ]
+        %tmp.89 = getm $.Toybox.Position;
+        %tmp.90 = getv function %tmp.89 :enableLocationEvents;
+        %tmp.92 = lgetv %options.3;
+        %tmp.93 = self;
+        %tmp.94 = getv function %tmp.93 :method;
+        %tmp.96 = const :onPosition;
+        %tmp.97 = invoke %tmp.93 %tmp.94(%tmp.96);
+        invoke %tmp.89 %tmp.90(%tmp.92, %tmp.97);
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_19_stop:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_endTry:
+        jsr @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_finally;
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_catch:
+        %tmp.98 = exception;
+        push %tmp.98;
+        [ "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_catch" "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_81_16_end" ]
+        %ex.4 = local;
+        %tmp.99 = dup %tmp.98;
+        lputv %ex.4 %tmp.99;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_81_26_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 82 20 ]
+        %tmp.100 = getm $.Toybox.System;
+        %tmp.101 = getv function %tmp.100 :println;
+        %tmp.103 = lgetv %ex.4;
+        invoke %tmp.100 %tmp.101(%tmp.103);
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_81_26_stop:
+        jsr @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_finally;
+        pop;
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_81_16_end:
+        jsr @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_finally;
+        throw %tmp.98;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_finally:
+        jsrret;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_78_16_end:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 86 16 ]
+        %tmp.104 = lgetv %self;
+        %tmp.105 = getv %tmp.104 :view;
+        %tmp.106 = getv %tmp.105 :startText;
+        %tmp.107 = getv function %tmp.106 :setText;
+        %tmp.108 = "Stop";
+        invoke %tmp.106 %tmp.107(%tmp.108);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 87 16 ]
+        %tmp.109 = lgetv %self;
+        %tmp.110 = getv %tmp.109 :view;
+        %tmp.111 = getv %tmp.110 :stringHr;
+        %tmp.112 = getv function %tmp.111 :setText;
+        %tmp.113 = "Heart rate:";
+        invoke %tmp.111 %tmp.112(%tmp.113);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 88 16 ]
+        %tmp.114 = lgetv %self;
+        %tmp.115 = getv %tmp.114 :view;
+        %tmp.116 = getv %tmp.115 :heartR;
+        %tmp.117 = getv function %tmp.116 :setText;
+        %tmp.118 = "-";
+        invoke %tmp.116 %tmp.117(%tmp.118);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 89 16 ]
+        %tmp.119 = true;
+        putv self :isRunning %tmp.119;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 90 16 ]
+        %tmp.120 = getm $.Toybox.WatchUi;
+        %tmp.121 = getv function %tmp.120 :requestUpdate;
+        invoke %tmp.120 %tmp.121();
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 91 16 ]
+        %tmp.122 = lgetv %self;
+        %tmp.123 = getv %tmp.122 :timer;
+        %tmp.124 = getv function %tmp.123 :start;
+        invoke %tmp.123 %tmp.124();
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_54_32_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_54_12_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_54_12_if_false:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_93_16_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 94 16 ]
+        %tmp.125 = lgetv %self;
+        %tmp.126 = getv %tmp.125 :view;
+        %tmp.127 = getv %tmp.126 :startText;
+        %tmp.128 = getv function %tmp.127 :setText;
+        %tmp.129 = "Start";
+        invoke %tmp.127 %tmp.128(%tmp.129);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 95 16 ]
+        %tmp.130 = getm $.Toybox.Sensor;
+        %tmp.131 = getv function %tmp.130 :disableSensorType;
+        %tmp.132 = getm $.Toybox.Sensor;
+        %tmp.133 = getv %tmp.132 :SENSOR_HEARTRATE;
+        invoke %tmp.130 %tmp.131(%tmp.133);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 96 16 ]
+        %tmp.134 = getm $.Toybox.Sensor;
+        %tmp.135 = getv function %tmp.134 :disableSensorType;
+        %tmp.136 = getm $.Toybox.Sensor;
+        %tmp.137 = getv %tmp.136 :SENSOR_PULSE_OXIMETRY;
+        invoke %tmp.134 %tmp.135(%tmp.137);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 97 16 ]
+        %tmp.138 = getm $.Toybox.Sensor;
+        %tmp.139 = getv function %tmp.138 :disableSensorType;
+        %tmp.140 = getm $.Toybox.Sensor;
+        %tmp.141 = getv %tmp.140 :SENSOR_TEMPERATURE;
+        invoke %tmp.138 %tmp.139(%tmp.141);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 98 16 ]
+        %tmp.142 = getm $.Toybox.Sensor;
+        %tmp.143 = getv function %tmp.142 :enableSensorEvents;
+        %tmp.144 = null;
+        invoke %tmp.142 %tmp.143(%tmp.144);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 99 16 ]
+        [ "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_93_16_start" "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_93_16_stop" ]
+        %options.5 = local;
+        %tmp.145 = newd 1;
+        %tmp.147 = const :acquisitionType;
+        %tmp.148 = getm $.Toybox.Position;
+        %tmp.149 = getv %tmp.148 :LOCATION_DISABLE;
+        %tmp.150 = dup %tmp.145;
+        %tmp.151 = aputv %tmp.150 %tmp.147 %tmp.149;
+        lputv %options.5 %tmp.151;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 100 16 ]
+        %tmp.152 = getm $.Toybox.Position;
+        %tmp.153 = getv function %tmp.152 :enableLocationEvents;
+        %tmp.155 = lgetv %options.5;
+        %tmp.156 = self;
+        %tmp.157 = getv function %tmp.156 :method;
+        %tmp.159 = const :onPosition;
+        %tmp.160 = invoke %tmp.156 %tmp.157(%tmp.159);
+        invoke %tmp.152 %tmp.153(%tmp.155, %tmp.160);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 102 16 ]
+        %tmp.161 = false;
+        putv self :isRunning %tmp.161;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 103 16 ]
+        %tmp.162 = getm $;
+        %tmp.163 = getm $;
+        %tmp.164 = getv %tmp.163 :hr;
+        putv %tmp.162 :lastHr %tmp.164;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 104 16 ]
+        %tmp.165 = getm $;
+        %tmp.166 = 0;
+        putv %tmp.165 :hr %tmp.166;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 105 16 ]
+        %tmp.167 = lgetv %self;
+        %tmp.168 = getv %tmp.167 :view;
+        %tmp.169 = getv %tmp.168 :stringHr;
+        %tmp.170 = getv function %tmp.169 :setText;
+        %tmp.171 = "";
+        invoke %tmp.169 %tmp.170(%tmp.171);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 106 16 ]
+        %tmp.172 = lgetv %self;
+        %tmp.173 = getv %tmp.172 :view;
+        %tmp.174 = getv %tmp.173 :heartR;
+        %tmp.175 = getv function %tmp.174 :setText;
+        %tmp.176 = "";
+        invoke %tmp.174 %tmp.175(%tmp.176);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 107 16 ]
+        %tmp.177 = getm $.Toybox.WatchUi;
+        %tmp.178 = getv function %tmp.177 :requestUpdate;
+        invoke %tmp.177 %tmp.178();
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 108 16 ]
+        %tmp.179 = lgetv %self;
+        %tmp.180 = getv %tmp.179 :timer;
+        %tmp.181 = getv function %tmp.180 :stop;
+        invoke %tmp.180 %tmp.181();
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_93_16_stop:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_54_12_if_end:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 111 12 ]
+        %tmp.182 = true;
+        ret %tmp.182;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_78_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_8_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_53_8_if_end:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 113 8 ]
+        %tmp.183 = false;
+        ret %tmp.183;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_49_28_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 117; ]
+    function onPosition(info as Position.Info) as Void {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_117_55_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 118 8 ]
+        [ "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_117_55_start" "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_117_55_stop" ]
+        %myLocation.1 = local;
+        %tmp.1 = lgetv %info;
+        %tmp.2 = getv %tmp.1 :position;
+        %tmp.3 = getv function %tmp.2 :toDegrees;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %myLocation.1 %tmp.4;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 120 8 ]
+        %tmp.5 = getm $;
+        %tmp.7 = lgetv %myLocation.1;
+        %tmp.8 = 0;
+        %tmp.9 = agetv %tmp.7 %tmp.8;
+        putv %tmp.5 :lat %tmp.9;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 121 8 ]
+        %tmp.10 = getm $;
+        %tmp.12 = lgetv %myLocation.1;
+        %tmp.13 = 1;
+        %tmp.14 = agetv %tmp.12 %tmp.13;
+        putv %tmp.10 :longit %tmp.14;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 122 8 ]
+        %tmp.15 = getm $.Toybox.System;
+        %tmp.16 = getv function %tmp.15 :println;
+        %tmp.17 = "Latitude: ";
+        %tmp.19 = lgetv %myLocation.1;
+        %tmp.20 = 0;
+        %tmp.21 = agetv %tmp.19 %tmp.20;
+        %tmp.22 = add %tmp.17 %tmp.21;
+        invoke %tmp.15 %tmp.16(%tmp.22);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 123 8 ]
+        %tmp.23 = getm $.Toybox.System;
+        %tmp.24 = getv function %tmp.23 :println;
+        %tmp.25 = "Longitude: ";
+        %tmp.27 = lgetv %myLocation.1;
+        %tmp.28 = 1;
+        %tmp.29 = agetv %tmp.27 %tmp.28;
+        %tmp.30 = add %tmp.25 %tmp.29;
+        invoke %tmp.23 %tmp.24(%tmp.30);
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_117_55_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 126; ]
+    function setData(SensorInfo as Sensor.Info) as Void {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_126_55_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 127 8 ]
+        [ "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_126_55_start" "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_126_55_stop" ]
+        %d.1 = local;
+        %tmp.2 = lgetv %SensorInfo;
+        lputv %d.1 %tmp.2;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 128 8 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_128_8_if_stmt:
+        %tmp.3 = lgetv %self;
+        %tmp.4 = getv %tmp.3 :isRunning;
+        bf %tmp.4 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_128_8_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_128_8_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_128_27_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 129 12 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_129_12_if_stmt:
+        %tmp.5 = lgetv %d.1;
+        %tmp.6 = getv %tmp.5 :heartRate;
+        %tmp.7 = null;
+        %tmp.8 = ne %tmp.6 %tmp.7;
+        bf %tmp.8 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_129_12_if_false;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_129_12_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_129_36_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 130 16 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_130_16_if_stmt:
+        %tmp.9 = lgetv %d.1;
+        %tmp.10 = getv %tmp.9 :heartRate;
+        %tmp.11 = getm $;
+        %tmp.12 = getv %tmp.11 :hr;
+        %tmp.13 = ne %tmp.10 %tmp.12;
+        bf %tmp.13 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_130_16_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_130_16_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_130_40_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 131 20 ]
+        %tmp.14 = getm $;
+        %tmp.15 = lgetv %d.1;
+        %tmp.16 = getv %tmp.15 :heartRate;
+        putv %tmp.14 :hr %tmp.16;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 132 20 ]
+        %tmp.17 = lgetv %self;
+        %tmp.18 = getv %tmp.17 :view;
+        %tmp.19 = getv %tmp.18 :heartR;
+        %tmp.20 = getv function %tmp.19 :setText;
+        %tmp.21 = " ";
+        %tmp.22 = getm $;
+        %tmp.23 = getv %tmp.22 :hr;
+        %tmp.24 = add %tmp.21 %tmp.23;
+        invoke %tmp.19 %tmp.20(%tmp.24);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 133 20 ]
+        %tmp.25 = getm $.Toybox.WatchUi;
+        %tmp.26 = getv function %tmp.25 :requestUpdate;
+        invoke %tmp.25 %tmp.26();
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_130_40_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_130_16_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_130_16_if_end:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_129_36_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_129_12_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_129_12_if_false:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_136_16_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 138 16 ]
+        %tmp.27 = lgetv %self;
+        %tmp.28 = getv %tmp.27 :view;
+        %tmp.29 = getv %tmp.28 :heartR;
+        %tmp.30 = getv function %tmp.29 :setText;
+        %tmp.31 = "  -";
+        invoke %tmp.29 %tmp.30(%tmp.31);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 139 16 ]
+        %tmp.32 = getm $.Toybox.WatchUi;
+        %tmp.33 = getv function %tmp.32 :requestUpdate;
+        invoke %tmp.32 %tmp.33();
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_136_16_stop:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_129_12_if_end:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 142 12 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_142_12_if_stmt:
+        %tmp.34 = lgetv %d.1;
+        %tmp.35 = getv %tmp.34 :accel;
+        %tmp.36 = null;
+        %tmp.37 = ne %tmp.35 %tmp.36;
+        bf %tmp.37 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_142_12_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_142_12_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_142_33_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 143 16 ]
+        %tmp.38 = getm $;
+        %tmp.39 = lgetv %d.1;
+        %tmp.40 = getv %tmp.39 :accel;
+        putv %tmp.38 :accel %tmp.40;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_142_33_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_142_12_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_142_12_if_end:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 146 12 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_12_if_stmt:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_17_begin:
+        %tmp.41 = lgetv %d.1;
+        %tmp.42 = getv %tmp.41 :temperature;
+        %tmp.43 = null;
+        %tmp.44 = ne %tmp.42 %tmp.43;
+        %tmp.45 = dup %tmp.44;
+        bf %tmp.45 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_42_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_42_true:
+        %tmp.46 = lgetv %d.1;
+        %tmp.47 = getv %tmp.46 :temperature;
+        %tmp.48 = getm $;
+        %tmp.49 = getv %tmp.48 :temp;
+        %tmp.50 = ne %tmp.47 %tmp.49;
+        %tmp.51 = and %tmp.44 %tmp.50;
+        push %tmp.51;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_42_end:
+        %tmp.52 = phi [%tmp.45 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_17_begin] [%tmp.51 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_42_true] [%tmp.52 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_42_end];
+        bf %tmp.52 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_12_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_12_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_67_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 147 16 ]
+        %tmp.53 = getm $;
+        %tmp.54 = lgetv %d.1;
+        %tmp.55 = getv %tmp.54 :temperature;
+        putv %tmp.53 :temp %tmp.55;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_67_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_12_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_146_12_if_end:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 150 12 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_150_12_if_stmt:
+        %tmp.56 = lgetv %d.1;
+        %tmp.57 = getv %tmp.56 :mag;
+        %tmp.58 = null;
+        %tmp.59 = ne %tmp.57 %tmp.58;
+        bf %tmp.59 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_150_12_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_150_12_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_150_31_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 151 16 ]
+        %tmp.60 = getm $;
+        %tmp.61 = lgetv %d.1;
+        %tmp.62 = getv %tmp.61 :mag;
+        putv %tmp.60 :magno %tmp.62;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_150_31_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_150_12_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_150_12_if_end:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 154 12 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_12_if_stmt:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_16_begin:
+        %tmp.63 = lgetv %d.1;
+        %tmp.64 = getv %tmp.63 :altitude;
+        %tmp.65 = null;
+        %tmp.66 = ne %tmp.64 %tmp.65;
+        %tmp.67 = dup %tmp.66;
+        bf %tmp.67 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_38_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_38_true:
+        %tmp.68 = getm $;
+        %tmp.69 = getv %tmp.68 :altit;
+        %tmp.70 = lgetv %d.1;
+        %tmp.71 = getv %tmp.70 :altitude;
+        %tmp.72 = ne %tmp.69 %tmp.71;
+        %tmp.73 = and %tmp.66 %tmp.72;
+        push %tmp.73;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_38_end:
+        %tmp.74 = phi [%tmp.67 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_16_begin] [%tmp.73 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_38_true] [%tmp.74 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_38_end];
+        bf %tmp.74 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_12_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_12_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_60_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 155 16 ]
+        %tmp.75 = getm $;
+        %tmp.76 = lgetv %d.1;
+        %tmp.77 = getv %tmp.76 :altitude;
+        putv %tmp.75 :altit %tmp.77;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_60_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_12_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_154_12_if_end:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 158 12 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_12_if_stmt:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_16_begin:
+        %tmp.78 = lgetv %d.1;
+        %tmp.79 = getv %tmp.78 :oxygenSaturation;
+        %tmp.80 = null;
+        %tmp.81 = ne %tmp.79 %tmp.80;
+        %tmp.82 = dup %tmp.81;
+        bf %tmp.82 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_46_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_46_true:
+        %tmp.83 = getm $;
+        %tmp.84 = getv %tmp.83 :oxygen;
+        %tmp.85 = lgetv %d.1;
+        %tmp.86 = getv %tmp.85 :oxygenSaturation;
+        %tmp.87 = ne %tmp.84 %tmp.86;
+        %tmp.88 = and %tmp.81 %tmp.87;
+        push %tmp.88;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_46_end:
+        %tmp.89 = phi [%tmp.82 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_16_begin] [%tmp.88 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_46_true] [%tmp.89 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_46_end];
+        bf %tmp.89 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_12_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_12_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_77_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 159 16 ]
+        %tmp.90 = getm $;
+        %tmp.91 = lgetv %d.1;
+        %tmp.92 = getv %tmp.91 :oxygenSaturation;
+        putv %tmp.90 :oxygen %tmp.92;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_77_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_12_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_158_12_if_end:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 163 12 ]
+        %tmp.93 = getm $.Toybox.System;
+        %tmp.94 = getv function %tmp.93 :println;
+        %tmp.95 = "Temperature ";
+        %tmp.96 = getm $;
+        %tmp.97 = getv %tmp.96 :temp;
+        %tmp.98 = add %tmp.95 %tmp.97;
+        invoke %tmp.93 %tmp.94(%tmp.98);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 164 12 ]
+        %tmp.99 = getm $.Toybox.System;
+        %tmp.100 = getv function %tmp.99 :println;
+        %tmp.101 = "Altitude ";
+        %tmp.102 = getm $;
+        %tmp.103 = getv %tmp.102 :altit;
+        %tmp.104 = add %tmp.101 %tmp.103;
+        invoke %tmp.99 %tmp.100(%tmp.104);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 165 12 ]
+        %tmp.105 = getm $.Toybox.System;
+        %tmp.106 = getv function %tmp.105 :println;
+        %tmp.107 = "Magnometer ";
+        %tmp.108 = getm $;
+        %tmp.109 = getv %tmp.108 :magno;
+        %tmp.110 = add %tmp.107 %tmp.109;
+        invoke %tmp.105 %tmp.106(%tmp.110);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 166 12 ]
+        %tmp.111 = getm $.Toybox.System;
+        %tmp.112 = getv function %tmp.111 :println;
+        %tmp.113 = "Oxygen saturation ";
+        %tmp.114 = getm $;
+        %tmp.115 = getv %tmp.114 :oxygen;
+        %tmp.116 = add %tmp.113 %tmp.115;
+        invoke %tmp.111 %tmp.112(%tmp.116);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 167 12 ]
+        %tmp.117 = getm $.Toybox.System;
+        %tmp.118 = getv function %tmp.117 :println;
+        %tmp.119 = "Accelerometer ";
+        %tmp.120 = getm $;
+        %tmp.121 = getv %tmp.120 :accel;
+        %tmp.122 = add %tmp.119 %tmp.121;
+        invoke %tmp.117 %tmp.118(%tmp.122);
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_128_27_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_128_8_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_128_8_if_end:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_126_55_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 181; ]
+    function onMenu() as Boolean {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_181_33_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 182 8 ]
+        %tmp.1 = getm $.Toybox.WatchUi;
+        %tmp.2 = getv function %tmp.1 :pushView;
+        %tmp.6 = getv ? :Rez;
+        %tmp.7 = getv %tmp.6 :Menus;
+        %tmp.8 = getv function ? %tmp.7 :MainMenu;
+        %tmp.3 = newc %tmp.8 ();
+        %tmp.12 = getv ? :SmartTouristMenuDelegate;
+        %tmp.9 = newc %tmp.12 ();
+        %tmp.13 = getm $.Toybox.WatchUi;
+        %tmp.14 = getv %tmp.13 :SLIDE_UP;
+        invoke %tmp.1 %tmp.2(%tmp.3, %tmp.9, %tmp.14);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 183 8 ]
+        %tmp.15 = true;
+        ret %tmp.15;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_181_33_stop:
+    }
+}
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 190; ]
+class SmartTouristDTO{
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 190; ]
+    <init> {
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 190; ]
+    static
+    <init> {
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 191; @position = 15; ]
+    public
+    var altitude;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 192; @position = 15; ]
+    public
+    var longitude;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 193; @position = 15; ]
+    public
+    var latitude;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 194; @position = 15; ]
+    public
+    var heartRate;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 195; @position = 15; ]
+    public
+    var temperature;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 196; @position = 15; ]
+    public
+    var oxygen;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 198; ]
+    function initialize(altitude, longitude, latitude, heartRate, temperature, oxygen) as Void {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_198_81_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 199 8 ]
+        %tmp.2 = lgetv %altitude;
+        putv self :altitude %tmp.2;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 200 8 ]
+        %tmp.4 = lgetv %longitude;
+        putv self :longitude %tmp.4;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 201 8 ]
+        %tmp.6 = lgetv %latitude;
+        putv self :latitude %tmp.6;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 202 8 ]
+        %tmp.8 = lgetv %heartRate;
+        putv self :heartRate %tmp.8;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 203 8 ]
+        %tmp.10 = lgetv %temperature;
+        putv self :temperature %tmp.10;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 204 8 ]
+        %tmp.12 = lgetv %oxygen;
+        putv self :oxygen %tmp.12;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_198_81_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 207; ]
+    function sendData() {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_207_23_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 209 8 ]
+        [ "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_207_23_start" "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_207_23_stop" ]
+        %json.1 = local;
+        %tmp.1 = newd 6;
+        %tmp.2 = "Altitude";
+        %tmp.3 = lgetv %self;
+        %tmp.4 = getv %tmp.3 :altitude;
+        %tmp.5 = dup %tmp.1;
+        %tmp.6 = aputv %tmp.5 %tmp.2 %tmp.4;
+        %tmp.7 = "Longitude";
+        %tmp.8 = lgetv %self;
+        %tmp.9 = getv %tmp.8 :longitude;
+        %tmp.10 = dup %tmp.6;
+        %tmp.11 = aputv %tmp.10 %tmp.7 %tmp.9;
+        %tmp.12 = "Latitude";
+        %tmp.13 = lgetv %self;
+        %tmp.14 = getv %tmp.13 :latitude;
+        %tmp.15 = dup %tmp.11;
+        %tmp.16 = aputv %tmp.15 %tmp.12 %tmp.14;
+        %tmp.17 = "Heart Rate";
+        %tmp.18 = lgetv %self;
+        %tmp.19 = getv %tmp.18 :heartRate;
+        %tmp.20 = dup %tmp.16;
+        %tmp.21 = aputv %tmp.20 %tmp.17 %tmp.19;
+        %tmp.22 = "Temperature";
+        %tmp.23 = lgetv %self;
+        %tmp.24 = getv %tmp.23 :temperature;
+        %tmp.25 = dup %tmp.21;
+        %tmp.26 = aputv %tmp.25 %tmp.22 %tmp.24;
+        %tmp.27 = "Oxygen";
+        %tmp.28 = lgetv %self;
+        %tmp.29 = getv %tmp.28 :oxygen;
+        %tmp.30 = dup %tmp.26;
+        %tmp.31 = aputv %tmp.30 %tmp.27 %tmp.29;
+        lputv %json.1 %tmp.31;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 212 8 ]
+        %tmp.33 = lgetv %json.1;
+        ret %tmp.33;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_207_23_stop:
+    }
+}
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 217; ]
+class SmartTouristHub{
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 217; ]
+    <init> {
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 217; ]
+    static
+    <init> {
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 218; @position = 8; ]
+    var timer;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 219; @position = 8; ]
+    var timeListener;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 220; @position = 8; ]
+    var transmitting;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 221; @position = 8; ]
+    var isRunning;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 222; @position = 8; ]
+    var interval;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 225; ]
+    function initialize(interval, listener) as Void {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_225_42_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 226 8 ]
+        %tmp.4 = getv ? :Timer;
+        %tmp.5 = getv function ? %tmp.4 :Timer;
+        %tmp.1 = newc %tmp.5 ();
+        putv self :timer %tmp.1;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 227 8 ]
+        %tmp.7 = lgetv %listener;
+        putv self :timeListener %tmp.7;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 228 8 ]
+        %tmp.8 = false;
+        putv self :transmitting %tmp.8;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 229 8 ]
+        %tmp.9 = false;
+        putv self :isRunning %tmp.9;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 230 8 ]
+        %tmp.11 = lgetv %interval;
+        putv self :interval %tmp.11;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_225_42_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 233; ]
+    function start() {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_233_20_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 234 8 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_234_8_if_stmt:
+        %tmp.1 = lgetv %self;
+        %tmp.2 = getv %tmp.1 :isRunning;
+        %tmp.3 = not %tmp.2;
+        bf %tmp.3 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_234_8_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_234_8_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_234_27_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 235 12 ]
+        %tmp.4 = lgetv %self;
+        %tmp.5 = getv %tmp.4 :timer;
+        %tmp.6 = getv function %tmp.5 :start;
+        %tmp.7 = self;
+        %tmp.8 = getv function %tmp.7 :method;
+        %tmp.10 = const :onTick;
+        %tmp.11 = invoke %tmp.7 %tmp.8(%tmp.10);
+        %tmp.13 = getv ? :interval;
+        %tmp.14 = true;
+        invoke %tmp.5 %tmp.6(%tmp.11, %tmp.13, %tmp.14);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 236 12 ]
+        %tmp.15 = true;
+        putv self :isRunning %tmp.15;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_234_27_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_234_8_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_234_8_if_end:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_233_20_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 239; ]
+    function onTick() {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_239_21_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 240 8 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_240_8_if_stmt:
+        %tmp.1 = lgetv %self;
+        %tmp.2 = getv %tmp.1 :transmitting;
+        %tmp.3 = not %tmp.2;
+        bf %tmp.3 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_240_8_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_240_8_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_240_30_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 241 12 ]
+        %tmp.4 = true;
+        putv self :transmitting %tmp.4;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 243 12 ]
+        [ "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_240_30_start" "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_240_30_stop" ]
+        %smartTouristJsonObj.1 = local;
+        %tmp.8 = getv ? :SmartTouristDTO;
+        %tmp.9 = getm $;
+        %tmp.10 = getv %tmp.9 :altit;
+        %tmp.11 = getm $;
+        %tmp.12 = getv %tmp.11 :longit;
+        %tmp.13 = getm $;
+        %tmp.14 = getv %tmp.13 :lat;
+        %tmp.15 = getm $;
+        %tmp.16 = getv %tmp.15 :hr;
+        %tmp.17 = getm $;
+        %tmp.18 = getv %tmp.17 :temp;
+        %tmp.19 = getm $;
+        %tmp.20 = getv %tmp.19 :oxygen;
+        %tmp.5 = newc %tmp.8 (%tmp.10, %tmp.12, %tmp.14, %tmp.16, %tmp.18, %tmp.20);
+        lputv %smartTouristJsonObj.1 %tmp.5;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 244 12 ]
+        [ "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_240_30_start" "_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_240_30_stop" ]
+        %jsonDictionary.2 = local;
+        %tmp.21 = lgetv %smartTouristJsonObj.1;
+        %tmp.22 = getv function %tmp.21 :sendData;
+        %tmp.23 = invoke %tmp.21 %tmp.22();
+        lputv %jsonDictionary.2 %tmp.23;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 246 12 ]
+        %tmp.24 = getm $.Toybox.Communications;
+        %tmp.25 = getv function %tmp.24 :transmit;
+        %tmp.27 = lgetv %jsonDictionary.2;
+        %tmp.28 = null;
+        %tmp.29 = lgetv %self;
+        %tmp.30 = getv %tmp.29 :timeListener;
+        invoke %tmp.24 %tmp.25(%tmp.27, %tmp.28, %tmp.30);
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_240_30_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_240_8_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_240_8_if_end:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_239_21_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 249; ]
+    function stop() {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_249_19_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 250 8 ]
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_250_8_if_stmt:
+        %tmp.2 = getv ? :isRunning;
+        bf %tmp.2 @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_250_8_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_250_8_if_true:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_250_21_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 251 12 ]
+        %tmp.4 = getv ? :timer;
+        %tmp.5 = getv function %tmp.4 :stop;
+        invoke %tmp.4 %tmp.5();
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" 252 12 ]
+        %tmp.6 = false;
+        putv self :isRunning %tmp.6;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_250_21_stop:
+        goto @_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_250_8_if_end;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_250_8_if_end:
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristDelegate_mc_249_19_stop:
+    }
+}
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc"; @line = 1; ]
+<init> {
+}

@@ -1,0 +1,193 @@
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 1; ]
+import Toybox.Graphics;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 2; ]
+import Toybox.WatchUi;
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 4; ]
+class SmartTouristView extends WatchUi.View{
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 4; ]
+    <init> {
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 4; ]
+    static
+    <init> {
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 5; @position = 8; ]
+    var startText;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 6; @position = 8; ]
+    var heartR;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 7; @position = 8; ]
+    var stringHr;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 8; @position = 8; ]
+    var height;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 9; @position = 8; ]
+    var width;
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 11; ]
+    function initialize() as Void {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristView_mc_11_26_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" 12 8 ]
+        %tmp.2 = getv ? :View;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristView_mc_11_26_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 16; ]
+    function onLayout(dc as Dc) as Void {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristView_mc_16_40_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" 17 8 ]
+        %tmp.1 = self;
+        %tmp.2 = getv function %tmp.1 :setLayout;
+        %tmp.4 = getv ? :Rez;
+        %tmp.5 = getv %tmp.4 :Layouts;
+        %tmp.6 = getv function %tmp.5 :MainLayout;
+        %tmp.8 = lgetv %dc;
+        %tmp.9 = invoke %tmp.5 %tmp.6(%tmp.8);
+        invoke %tmp.1 %tmp.2(%tmp.9);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" 18 8 ]
+        %tmp.10 = lgetv %dc;
+        %tmp.11 = getv function %tmp.10 :getHeight;
+        %tmp.12 = invoke %tmp.10 %tmp.11();
+        putv self :height %tmp.12;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" 19 8 ]
+        %tmp.13 = lgetv %dc;
+        %tmp.14 = getv function %tmp.13 :getWidth;
+        %tmp.15 = invoke %tmp.13 %tmp.14();
+        putv self :width %tmp.15;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristView_mc_16_40_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 25; ]
+    function onShow() as Void {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristView_mc_25_30_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" 27 8 ]
+        %tmp.3 = getm $.Toybox.WatchUi;
+        %tmp.4 = getv function ? %tmp.3 :Text;
+        %tmp.5 = newd 5;
+        %tmp.7 = const :text;
+        %tmp.8 = "Start.";
+        %tmp.9 = dup %tmp.5;
+        %tmp.10 = aputv %tmp.9 %tmp.7 %tmp.8;
+        %tmp.12 = const :color;
+        %tmp.13 = getm $.Toybox.Graphics;
+        %tmp.14 = getv %tmp.13 :COLOR_WHITE;
+        %tmp.15 = dup %tmp.10;
+        %tmp.16 = aputv %tmp.15 %tmp.12 %tmp.14;
+        %tmp.18 = const :font;
+        %tmp.19 = getm $.Toybox.Graphics;
+        %tmp.20 = getv %tmp.19 :FONT_LARGE;
+        %tmp.21 = dup %tmp.16;
+        %tmp.22 = aputv %tmp.21 %tmp.18 %tmp.20;
+        %tmp.24 = const :locX;
+        %tmp.25 = getm $.Toybox.WatchUi;
+        %tmp.26 = getv %tmp.25 :LAYOUT_HALIGN_CENTER;
+        %tmp.27 = dup %tmp.22;
+        %tmp.28 = aputv %tmp.27 %tmp.24 %tmp.26;
+        %tmp.30 = const :locY;
+        %tmp.31 = getm $.Toybox.WatchUi;
+        %tmp.32 = getv %tmp.31 :LAYOUT_VALIGN_TOP;
+        %tmp.33 = dup %tmp.28;
+        %tmp.34 = aputv %tmp.33 %tmp.30 %tmp.32;
+        %tmp.1 = newc %tmp.4 (%tmp.34);
+        putv self :startText %tmp.1;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" 36 8 ]
+        %tmp.37 = getm $.Toybox.WatchUi;
+        %tmp.38 = getv function ? %tmp.37 :Text;
+        %tmp.39 = newd 5;
+        %tmp.41 = const :text;
+        %tmp.42 = "";
+        %tmp.43 = dup %tmp.39;
+        %tmp.44 = aputv %tmp.43 %tmp.41 %tmp.42;
+        %tmp.46 = const :color;
+        %tmp.47 = getm $.Toybox.Graphics;
+        %tmp.48 = getv %tmp.47 :COLOR_WHITE;
+        %tmp.49 = dup %tmp.44;
+        %tmp.50 = aputv %tmp.49 %tmp.46 %tmp.48;
+        %tmp.52 = const :font;
+        %tmp.53 = getm $.Toybox.Graphics;
+        %tmp.54 = getv %tmp.53 :FONT_MEDIUM;
+        %tmp.55 = dup %tmp.50;
+        %tmp.56 = aputv %tmp.55 %tmp.52 %tmp.54;
+        %tmp.58 = const :locX;
+        %tmp.59 = 15;
+        %tmp.60 = dup %tmp.56;
+        %tmp.61 = aputv %tmp.60 %tmp.58 %tmp.59;
+        %tmp.63 = const :locY;
+        %tmp.64 = lgetv %self;
+        %tmp.65 = getv %tmp.64 :height;
+        %tmp.66 = 2;
+        %tmp.67 = div %tmp.65 %tmp.66;
+        %tmp.68 = dup %tmp.61;
+        %tmp.69 = aputv %tmp.68 %tmp.63 %tmp.67;
+        %tmp.35 = newc %tmp.38 (%tmp.69);
+        putv self :stringHr %tmp.35;
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" 46 8 ]
+        %tmp.72 = getm $.Toybox.WatchUi;
+        %tmp.73 = getv function ? %tmp.72 :Text;
+        %tmp.74 = newd 5;
+        %tmp.76 = const :text;
+        %tmp.77 = "";
+        %tmp.78 = dup %tmp.74;
+        %tmp.79 = aputv %tmp.78 %tmp.76 %tmp.77;
+        %tmp.81 = const :color;
+        %tmp.82 = getm $.Toybox.Graphics;
+        %tmp.83 = getv %tmp.82 :COLOR_WHITE;
+        %tmp.84 = dup %tmp.79;
+        %tmp.85 = aputv %tmp.84 %tmp.81 %tmp.83;
+        %tmp.87 = const :font;
+        %tmp.88 = getm $.Toybox.Graphics;
+        %tmp.89 = getv %tmp.88 :FONT_MEDIUM;
+        %tmp.90 = dup %tmp.85;
+        %tmp.91 = aputv %tmp.90 %tmp.87 %tmp.89;
+        %tmp.93 = const :locX;
+        %tmp.94 = lgetv %self;
+        %tmp.95 = getv %tmp.94 :width;
+        %tmp.96 = 2;
+        %tmp.97 = div %tmp.95 %tmp.96;
+        %tmp.98 = 10;
+        %tmp.99 = add %tmp.97 %tmp.98;
+        %tmp.100 = dup %tmp.91;
+        %tmp.101 = aputv %tmp.100 %tmp.93 %tmp.99;
+        %tmp.103 = const :locY;
+        %tmp.104 = lgetv %self;
+        %tmp.105 = getv %tmp.104 :height;
+        %tmp.106 = 2;
+        %tmp.107 = div %tmp.105 %tmp.106;
+        %tmp.108 = dup %tmp.101;
+        %tmp.109 = aputv %tmp.108 %tmp.103 %tmp.107;
+        %tmp.70 = newc %tmp.73 (%tmp.109);
+        putv self :heartR %tmp.70;
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristView_mc_25_30_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 80; ]
+    function onUpdate(dc as Dc) as Void {
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristView_mc_80_40_start:
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" 83 8 ]
+        %tmp.2 = getv ? :View;
+        %tmp.3 = getv function %tmp.2 :onUpdate;
+        %tmp.5 = lgetv %dc;
+        invoke %tmp.2 %tmp.3(%tmp.5);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" 84 8 ]
+        %tmp.6 = lgetv %self;
+        %tmp.7 = getv %tmp.6 :startText;
+        %tmp.8 = getv function %tmp.7 :draw;
+        %tmp.10 = lgetv %dc;
+        invoke %tmp.7 %tmp.8(%tmp.10);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" 85 8 ]
+        %tmp.11 = lgetv %self;
+        %tmp.12 = getv %tmp.11 :stringHr;
+        %tmp.13 = getv function %tmp.12 :draw;
+        %tmp.15 = lgetv %dc;
+        invoke %tmp.12 %tmp.13(%tmp.15);
+[ "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" 86 8 ]
+        %tmp.16 = lgetv %self;
+        %tmp.17 = getv %tmp.16 :heartR;
+        %tmp.18 = getv function %tmp.17 :draw;
+        %tmp.20 = lgetv %dc;
+        invoke %tmp.17 %tmp.18(%tmp.20);
+_home_innoisys_geotri_Touristas_SmartTourist_source_SmartTouristView_mc_80_40_stop:
+    }
+    [ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 97; ]
+    function onHide() as Void {
+    }
+}
+[ @file = "/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc"; @line = 1; ]
+<init> {
+}

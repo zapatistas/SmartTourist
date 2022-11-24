@@ -1,0 +1,132 @@
+[ @file = "Rez.mc"; @line = 1; ]
+module Rez {
+    [ @file = "Rez.mc"; @line = 1; ]
+    <init> {
+    }
+    [ @file = "Rez.mc"; @line = 2; ]
+    module Drawables {
+        [ @file = "Rez.mc"; @line = 2; ]
+        <init> {
+        }
+        [ @file = "Rez.mc"; @line = 3; ]
+        import Toybox.Lang;
+        [ @file = "Rez.mc"; @line = 4; @position = 19; initialized = true; ]
+        var LauncherIcon as Symbol;
+    }
+    [ @file = "Rez.mc"; @line = 6; ]
+    module Fonts {
+        [ @file = "Rez.mc"; @line = 6; ]
+        <init> {
+        }
+    }
+    [ @file = "Rez.mc"; @line = 8; ]
+    module JsonData {
+        [ @file = "Rez.mc"; @line = 8; ]
+        <init> {
+        }
+    }
+    [ @file = "Rez.mc"; @line = 10; ]
+    module Layouts {
+        [ @file = "Rez.mc"; @line = 10; ]
+        <init> {
+        }
+        [ @file = "Rez.mc"; @line = 11; ]
+        import Toybox.Lang;
+        [ @file = "Rez.mc"; @line = 12; ]
+        using Toybox.WatchUi;
+        [ @file = "Rez.mc"; @line = 13; ]
+        using Toybox.WatchUi as :Ui;
+        [ @file = "Rez.mc"; @line = 14; ]
+        using Toybox.Graphics;
+        [ @file = "Rez.mc"; @line = 15; ]
+        using Toybox.Graphics as :Gfx;
+        [ @file = "Rez.mc"; @line = 17; ]
+        function MainLayout(dc as Graphics.Dc) as Array<WatchUi.Drawable> {
+Rez_mc_17_70_start:
+[ "Rez.mc" 18 8 ]
+            %tmp.1 = newa Array<WatchUi.Drawable> 0;
+            ret %tmp.1;
+Rez_mc_17_70_stop:
+        }
+    }
+    [ @file = "Rez.mc"; @line = 21; ]
+    module Menus {
+        [ @file = "Rez.mc"; @line = 21; ]
+        <init> {
+        }
+        [ @file = "Rez.mc"; @line = 22; ]
+        import Toybox.Lang;
+        [ @file = "Rez.mc"; @line = 23; ]
+        using Toybox.WatchUi;
+        [ @file = "Rez.mc"; @line = 24; ]
+        using Toybox.WatchUi as :Ui;
+        [ @file = "Rez.mc"; @line = 25; ]
+        using Toybox.Graphics;
+        [ @file = "Rez.mc"; @line = 26; ]
+        using Toybox.Graphics as :Gfx;
+        [ @file = "Rez.mc"; @line = 28; ]
+        class MainMenu extends WatchUi.Menu{
+            [ @file = "Rez.mc"; @line = 28; ]
+            <init> {
+            }
+            [ @file = "Rez.mc"; @line = 28; ]
+            static
+            <init> {
+            }
+            [ @file = "Rez.mc"; @line = 30; ]
+            function initialize() as Void {
+Rez_mc_30_30_start:
+[ "Rez.mc" 31 12 ]
+                %tmp.2 = getv ? :Menu;
+                %tmp.3 = getv function %tmp.2 :initialize;
+                invoke %tmp.2 %tmp.3();
+[ "Rez.mc" 32 12 ]
+                %tmp.4 = self;
+                %tmp.5 = getv function %tmp.4 :addItem;
+                %tmp.6 = getm $.Toybox.WatchUi;
+                %tmp.7 = getv function %tmp.6 :loadResource;
+                %tmp.8 = getm $;
+                %tmp.9 = getv %tmp.8 :Rez;
+                %tmp.10 = getv %tmp.9 :Strings;
+                %tmp.11 = getv %tmp.10 :menu_label_1;
+                %tmp.12 = invoke %tmp.6 %tmp.7(%tmp.11);
+                %tmp.13 = as %tmp.12 String;
+                %tmp.15 = const :item_1;
+                invoke %tmp.4 %tmp.5(%tmp.13, %tmp.15);
+[ "Rez.mc" 33 12 ]
+                %tmp.16 = self;
+                %tmp.17 = getv function %tmp.16 :addItem;
+                %tmp.18 = getm $.Toybox.WatchUi;
+                %tmp.19 = getv function %tmp.18 :loadResource;
+                %tmp.20 = getm $;
+                %tmp.21 = getv %tmp.20 :Rez;
+                %tmp.22 = getv %tmp.21 :Strings;
+                %tmp.23 = getv %tmp.22 :menu_label_2;
+                %tmp.24 = invoke %tmp.18 %tmp.19(%tmp.23);
+                %tmp.25 = as %tmp.24 String;
+                %tmp.27 = const :item_2;
+                invoke %tmp.16 %tmp.17(%tmp.25, %tmp.27);
+Rez_mc_30_30_stop:
+            }
+        }
+    }
+    [ @file = "Rez.mc"; @line = 39; ]
+    module Strings {
+        [ @file = "Rez.mc"; @line = 39; ]
+        <init> {
+        }
+        [ @file = "Rez.mc"; @line = 40; ]
+        import Toybox.Lang;
+        [ @file = "Rez.mc"; @line = 41; @position = 19; initialized = true; ]
+        var menu_label_1 as Symbol;
+        [ @file = "Rez.mc"; @line = 42; @position = 19; initialized = true; ]
+        var menu_label_2 as Symbol;
+        [ @file = "Rez.mc"; @line = 43; @position = 19; initialized = true; ]
+        var prompt as Symbol;
+        [ @file = "Rez.mc"; @line = 44; @position = 19; initialized = true; ]
+        var AppName as Symbol;
+    }
+}
+[ @file = "Rez.mc"; @line = 1; ]
+<init> {
+}

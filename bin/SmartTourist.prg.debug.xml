@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+    <manifest filename="/home/innoisys/geotri/Touristas/SmartTourist/manifest.xml"/>
+    <pcToLineNum>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="2" lineNum="8" parent="globals" pc="268435460" symbol="&lt;init&gt;"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristMenuDelegate.mc" id="6" lineNum="5" parent="globals/SmartTouristMenuDelegate" pc="268435540" symbol="&lt;init&gt;"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristMenuDelegate.mc" id="7" lineNum="11" parent="globals/SmartTouristMenuDelegate" pc="268435559" symbol="onMenuItem"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristMenuDelegate.mc" id="7" lineNum="12" parent="globals/SmartTouristMenuDelegate" pc="268435561" symbol="onMenuItem"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristMenuDelegate.mc" id="7" lineNum="13" parent="globals/SmartTouristMenuDelegate" pc="268435572" symbol="onMenuItem"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristMenuDelegate.mc" id="7" lineNum="14" parent="globals/SmartTouristMenuDelegate" pc="268435596" symbol="onMenuItem"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristMenuDelegate.mc" id="7" lineNum="15" parent="globals/SmartTouristMenuDelegate" pc="268435607" symbol="onMenuItem"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristMenuDelegate.mc" id="8" lineNum="7" parent="globals/SmartTouristMenuDelegate" pc="268435632" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristMenuDelegate.mc" id="8" lineNum="8" parent="globals/SmartTouristMenuDelegate" pc="268435634" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="9" lineNum="34" parent="globals/SmartTouristDelegate" pc="268435653" symbol="&lt;init&gt;"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="10" lineNum="181" parent="globals/SmartTouristDelegate" pc="268435672" symbol="onMenu"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="10" lineNum="182" parent="globals/SmartTouristDelegate" pc="268435674" symbol="onMenu"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="10" lineNum="183" parent="globals/SmartTouristDelegate" pc="268435759" symbol="onMenu"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="11" lineNum="117" parent="globals/SmartTouristDelegate" pc="268435762" symbol="onPosition"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="11" lineNum="118" parent="globals/SmartTouristDelegate" pc="268435766" symbol="onPosition"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="11" lineNum="120" parent="globals/SmartTouristDelegate" pc="268435785" symbol="onPosition"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="11" lineNum="121" parent="globals/SmartTouristDelegate" pc="268435805" symbol="onPosition"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="11" lineNum="122" parent="globals/SmartTouristDelegate" pc="268435825" symbol="onPosition"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="11" lineNum="123" parent="globals/SmartTouristDelegate" pc="268435855" symbol="onPosition"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="126" parent="globals/SmartTouristDelegate" pc="268435886" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="127" parent="globals/SmartTouristDelegate" pc="268435890" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="128" parent="globals/SmartTouristDelegate" pc="268435894" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="129" parent="globals/SmartTouristDelegate" pc="268435905" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="130" parent="globals/SmartTouristDelegate" pc="268435918" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="131" parent="globals/SmartTouristDelegate" pc="268435942" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="132" parent="globals/SmartTouristDelegate" pc="268435962" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="133" parent="globals/SmartTouristDelegate" pc="268436004" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="138" parent="globals/SmartTouristDelegate" pc="268436026" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="139" parent="globals/SmartTouristDelegate" pc="268436055" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="142" parent="globals/SmartTouristDelegate" pc="268436071" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="143" parent="globals/SmartTouristDelegate" pc="268436084" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="146" parent="globals/SmartTouristDelegate" pc="268436107" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="147" parent="globals/SmartTouristDelegate" pc="268436147" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="150" parent="globals/SmartTouristDelegate" pc="268436170" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="151" parent="globals/SmartTouristDelegate" pc="268436183" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="154" parent="globals/SmartTouristDelegate" pc="268436206" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="155" parent="globals/SmartTouristDelegate" pc="268436246" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="158" parent="globals/SmartTouristDelegate" pc="268436269" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="159" parent="globals/SmartTouristDelegate" pc="268436309" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="163" parent="globals/SmartTouristDelegate" pc="268436332" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="164" parent="globals/SmartTouristDelegate" pc="268436366" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="165" parent="globals/SmartTouristDelegate" pc="268436400" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="166" parent="globals/SmartTouristDelegate" pc="268436434" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="12" lineNum="167" parent="globals/SmartTouristDelegate" pc="268436468" symbol="setData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="13" lineNum="41" parent="globals/SmartTouristDelegate" pc="268436506" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="13" lineNum="42" parent="globals/SmartTouristDelegate" pc="268436508" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="13" lineNum="43" parent="globals/SmartTouristDelegate" pc="268436518" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="13" lineNum="44" parent="globals/SmartTouristDelegate" pc="268436528" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="13" lineNum="45" parent="globals/SmartTouristDelegate" pc="268436562" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="13" lineNum="46" parent="globals/SmartTouristDelegate" pc="268436609" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="49" parent="globals/SmartTouristDelegate" pc="268436628" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="50" parent="globals/SmartTouristDelegate" pc="268436632" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="51" parent="globals/SmartTouristDelegate" pc="268436645" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="53" parent="globals/SmartTouristDelegate" pc="268436658" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="54" parent="globals/SmartTouristDelegate" pc="268436683" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="56" parent="globals/SmartTouristDelegate" pc="268436695" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="57" parent="globals/SmartTouristDelegate" pc="268436716" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="58" parent="globals/SmartTouristDelegate" pc="268436737" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="59" parent="globals/SmartTouristDelegate" pc="268436758" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="61" parent="globals/SmartTouristDelegate" pc="268436790" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="65" parent="globals/SmartTouristDelegate" pc="268436811" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="66" parent="globals/SmartTouristDelegate" pc="268436826" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="69" parent="globals/SmartTouristDelegate" pc="268436842" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="70" parent="globals/SmartTouristDelegate" pc="268436857" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="71" parent="globals/SmartTouristDelegate" pc="268436873" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="72" parent="globals/SmartTouristDelegate" pc="268436888" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="74" parent="globals/SmartTouristDelegate" pc="268436931" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="79" parent="globals/SmartTouristDelegate" pc="268436938" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="78" parent="globals/SmartTouristDelegate" pc="268436938" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="82" parent="globals/SmartTouristDelegate" pc="268436982" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="86" parent="globals/SmartTouristDelegate" pc="268437012" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="87" parent="globals/SmartTouristDelegate" pc="268437041" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="88" parent="globals/SmartTouristDelegate" pc="268437070" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="89" parent="globals/SmartTouristDelegate" pc="268437099" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="90" parent="globals/SmartTouristDelegate" pc="268437109" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="91" parent="globals/SmartTouristDelegate" pc="268437125" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="94" parent="globals/SmartTouristDelegate" pc="268437146" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="95" parent="globals/SmartTouristDelegate" pc="268437175" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="96" parent="globals/SmartTouristDelegate" pc="268437196" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="97" parent="globals/SmartTouristDelegate" pc="268437217" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="98" parent="globals/SmartTouristDelegate" pc="268437238" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="99" parent="globals/SmartTouristDelegate" pc="268437255" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="100" parent="globals/SmartTouristDelegate" pc="268437276" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="102" parent="globals/SmartTouristDelegate" pc="268437310" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="103" parent="globals/SmartTouristDelegate" pc="268437320" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="104" parent="globals/SmartTouristDelegate" pc="268437344" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="105" parent="globals/SmartTouristDelegate" pc="268437361" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="106" parent="globals/SmartTouristDelegate" pc="268437390" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="107" parent="globals/SmartTouristDelegate" pc="268437419" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="108" parent="globals/SmartTouristDelegate" pc="268437435" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="111" parent="globals/SmartTouristDelegate" pc="268437453" symbol="onKey"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="14" lineNum="113" parent="globals/SmartTouristDelegate" pc="268437459" symbol="onKey"/>
+        <entry filename="Rez.mc" id="15" lineNum="1" parent="globals/Rez" pc="268437462" symbol="&lt;init&gt;"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="16" lineNum="239" parent="globals/SmartTouristHub" pc="268437486" symbol="onTick"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="16" lineNum="240" parent="globals/SmartTouristHub" pc="268437490" symbol="onTick"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="16" lineNum="241" parent="globals/SmartTouristHub" pc="268437502" symbol="onTick"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="16" lineNum="243" parent="globals/SmartTouristHub" pc="268437512" symbol="onTick"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="16" lineNum="244" parent="globals/SmartTouristHub" pc="268437612" symbol="onTick"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="16" lineNum="246" parent="globals/SmartTouristHub" pc="268437625" symbol="onTick"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="17" lineNum="249" parent="globals/SmartTouristHub" pc="268437656" symbol="stop"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="17" lineNum="250" parent="globals/SmartTouristHub" pc="268437658" symbol="stop"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="17" lineNum="251" parent="globals/SmartTouristHub" pc="268437669" symbol="stop"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="17" lineNum="252" parent="globals/SmartTouristHub" pc="268437687" symbol="stop"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="18" lineNum="233" parent="globals/SmartTouristHub" pc="268437701" symbol="start"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="18" lineNum="234" parent="globals/SmartTouristHub" pc="268437703" symbol="start"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="18" lineNum="235" parent="globals/SmartTouristHub" pc="268437715" symbol="start"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="18" lineNum="236" parent="globals/SmartTouristHub" pc="268437759" symbol="start"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="19" lineNum="225" parent="globals/SmartTouristHub" pc="268437773" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="19" lineNum="226" parent="globals/SmartTouristHub" pc="268437775" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="19" lineNum="227" parent="globals/SmartTouristHub" pc="268437811" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="19" lineNum="228" parent="globals/SmartTouristHub" pc="268437821" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="19" lineNum="229" parent="globals/SmartTouristHub" pc="268437831" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="19" lineNum="230" parent="globals/SmartTouristHub" pc="268437841" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="20" lineNum="80" parent="globals" pc="268437852" symbol="getApp"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="20" lineNum="81" parent="globals" pc="268437862" symbol="getApp"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="21" lineNum="20" parent="globals/CommListener" pc="268437878" symbol="&lt;init&gt;"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="22" lineNum="29" parent="globals/CommListener" pc="268437897" symbol="onError"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="22" lineNum="30" parent="globals/CommListener" pc="268437899" symbol="onError"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="23" lineNum="25" parent="globals/CommListener" pc="268437921" symbol="onComplete"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="23" lineNum="26" parent="globals/CommListener" pc="268437923" symbol="onComplete"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="24" lineNum="21" parent="globals/CommListener" pc="268437945" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="24" lineNum="22" parent="globals/CommListener" pc="268437947" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="25" lineNum="4" parent="globals/SmartTouristView" pc="268437970" symbol="&lt;init&gt;"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="26" lineNum="25" parent="globals/SmartTouristView" pc="268437989" symbol="onShow"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="26" lineNum="27" parent="globals/SmartTouristView" pc="268437991" symbol="onShow"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="26" lineNum="36" parent="globals/SmartTouristView" pc="268438096" symbol="onShow"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="26" lineNum="46" parent="globals/SmartTouristView" pc="268438210" symbol="onShow"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="27" lineNum="16" parent="globals/SmartTouristView" pc="268438340" symbol="onLayout"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="27" lineNum="17" parent="globals/SmartTouristView" pc="268438342" symbol="onLayout"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="27" lineNum="18" parent="globals/SmartTouristView" pc="268438383" symbol="onLayout"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="27" lineNum="19" parent="globals/SmartTouristView" pc="268438402" symbol="onLayout"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="28" lineNum="11" parent="globals/SmartTouristView" pc="268438422" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="28" lineNum="12" parent="globals/SmartTouristView" pc="268438424" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="30" lineNum="80" parent="globals/SmartTouristView" pc="268438443" symbol="onUpdate"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="30" lineNum="83" parent="globals/SmartTouristView" pc="268438445" symbol="onUpdate"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="30" lineNum="84" parent="globals/SmartTouristView" pc="268438465" symbol="onUpdate"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="30" lineNum="85" parent="globals/SmartTouristView" pc="268438485" symbol="onUpdate"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristView.mc" id="30" lineNum="86" parent="globals/SmartTouristView" pc="268438505" symbol="onUpdate"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="31" lineNum="207" parent="globals/SmartTouristDTO" pc="268438526" symbol="sendData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="31" lineNum="209" parent="globals/SmartTouristDTO" pc="268438530" symbol="sendData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="31" lineNum="212" parent="globals/SmartTouristDTO" pc="268438634" symbol="sendData"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="32" lineNum="198" parent="globals/SmartTouristDTO" pc="268438637" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="32" lineNum="199" parent="globals/SmartTouristDTO" pc="268438639" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="32" lineNum="200" parent="globals/SmartTouristDTO" pc="268438649" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="32" lineNum="201" parent="globals/SmartTouristDTO" pc="268438659" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="32" lineNum="202" parent="globals/SmartTouristDTO" pc="268438669" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="32" lineNum="203" parent="globals/SmartTouristDTO" pc="268438679" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristDelegate.mc" id="32" lineNum="204" parent="globals/SmartTouristDTO" pc="268438689" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="33" lineNum="14" parent="globals/SmartTouristApp" pc="268438700" symbol="&lt;init&gt;"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="34" lineNum="31" parent="globals/SmartTouristApp" pc="268438719" symbol="onStart"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="35" lineNum="39" parent="globals/SmartTouristApp" pc="268438722" symbol="getInitialView"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="35" lineNum="40" parent="globals/SmartTouristApp" pc="268438726" symbol="getInitialView"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="35" lineNum="41" parent="globals/SmartTouristApp" pc="268438754" symbol="getInitialView"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="36" lineNum="44" parent="globals/SmartTouristApp" pc="268438807" symbol="onMail"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="36" lineNum="47" parent="globals/SmartTouristApp" pc="268438811" symbol="onMail"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="36" lineNum="45" parent="globals/SmartTouristApp" pc="268438811" symbol="onMail"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="36" lineNum="49" parent="globals/SmartTouristApp" pc="268438824" symbol="onMail"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="36" lineNum="50" parent="globals/SmartTouristApp" pc="268438831" symbol="onMail"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="36" lineNum="51" parent="globals/SmartTouristApp" pc="268438831" symbol="onMail"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="36" lineNum="52" parent="globals/SmartTouristApp" pc="268438858" symbol="onMail"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="36" lineNum="54" parent="globals/SmartTouristApp" pc="268438899" symbol="onMail"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="36" lineNum="55" parent="globals/SmartTouristApp" pc="268438924" symbol="onMail"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="36" lineNum="56" parent="globals/SmartTouristApp" pc="268438937" symbol="onMail"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="36" lineNum="59" parent="globals/SmartTouristApp" pc="268438953" symbol="onMail"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="36" lineNum="60" parent="globals/SmartTouristApp" pc="268438969" symbol="onMail"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="37" lineNum="16" parent="globals/SmartTouristApp" pc="268438986" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="37" lineNum="17" parent="globals/SmartTouristApp" pc="268438988" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="37" lineNum="18" parent="globals/SmartTouristApp" pc="268439006" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="37" lineNum="19" parent="globals/SmartTouristApp" pc="268439030" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="37" lineNum="20" parent="globals/SmartTouristApp" pc="268439054" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="37" lineNum="21" parent="globals/SmartTouristApp" pc="268439069" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="37" lineNum="22" parent="globals/SmartTouristApp" pc="268439096" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="37" lineNum="23" parent="globals/SmartTouristApp" pc="268439111" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="37" lineNum="25" parent="globals/SmartTouristApp" pc="268439138" symbol="initialize"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="38" lineNum="35" parent="globals/SmartTouristApp" pc="268439149" symbol="onStop"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="39" lineNum="63" parent="globals/SmartTouristApp" pc="268439152" symbol="onPhone"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="39" lineNum="64" parent="globals/SmartTouristApp" pc="268439156" symbol="onPhone"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="39" lineNum="66" parent="globals/SmartTouristApp" pc="268439156" symbol="onPhone"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="39" lineNum="67" parent="globals/SmartTouristApp" pc="268439198" symbol="onPhone"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="39" lineNum="70" parent="globals/SmartTouristApp" pc="268439213" symbol="onPhone"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="39" lineNum="71" parent="globals/SmartTouristApp" pc="268439240" symbol="onPhone"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="39" lineNum="73" parent="globals/SmartTouristApp" pc="268439281" symbol="onPhone"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="39" lineNum="74" parent="globals/SmartTouristApp" pc="268439312" symbol="onPhone"/>
+        <entry filename="/home/innoisys/geotri/Touristas/SmartTourist/source/SmartTouristApp.mc" id="39" lineNum="76" parent="globals/SmartTouristApp" pc="268439325" symbol="onPhone"/>
+        <entry filename="Rez.mc" id="40" lineNum="17" parent="globals/Rez/Layouts" pc="268439342" symbol="MainLayout"/>
+        <entry filename="Rez.mc" id="40" lineNum="18" parent="globals/Rez/Layouts" pc="268439352" symbol="MainLayout"/>
+        <entry filename="Rez.mc" id="41" lineNum="28" parent="globals/Rez/Menus/MainMenu" pc="268439359" symbol="&lt;init&gt;"/>
+        <entry filename="Rez.mc" id="42" lineNum="30" parent="globals/Rez/Menus/MainMenu" pc="268439378" symbol="initialize"/>
+        <entry filename="Rez.mc" id="42" lineNum="31" parent="globals/Rez/Menus/MainMenu" pc="268439380" symbol="initialize"/>
+        <entry filename="Rez.mc" id="42" lineNum="32" parent="globals/Rez/Menus/MainMenu" pc="268439398" symbol="initialize"/>
+        <entry filename="Rez.mc" id="42" lineNum="33" parent="globals/Rez/Menus/MainMenu" pc="268439454" symbol="initialize"/>
+    </pcToLineNum>
+    <symbolTable>
+        <entry id="8388639" module="true" symbol="Graphics"/>
+        <entry id="8389346" symbol="text"/>
+        <entry id="8391711" symbol="constellations"/>
+        <entry id="8389939" method="true" symbol="registerForPhoneAppMessages"/>
+        <entry field="true" id="17" symbol="crashOnMessage"/>
+        <entry field="true" id="30" symbol="isRunning"/>
+        <entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+        <entry field="true" id="43" symbol="stringHr"/>
+        <entry id="7" module="true" symbol="globals/Rez/Menus"/>
+        <entry field="true" id="29" symbol="temp"/>
+        <entry id="8391715" symbol="acquisitionType"/>
+        <entry id="48" method="true" symbol="MainLayout"/>
+        <entry field="true" id="33" symbol="timer"/>
+        <entry field="true" id="25" symbol="page"/>
+        <entry id="13" object="true" symbol="SmartTouristHub"/>
+        <entry field="true" id="22" symbol="magno"/>
+        <entry field="true" id="23" symbol="mailMethod"/>
+        <entry field="true" id="8389605" symbol="accel"/>
+        <entry id="32" method="true" symbol="onPosition"/>
+        <entry field="true" id="8388611" module="true" symbol="Toybox"/>
+        <entry field="true" id="8388962" symbol="temperature"/>
+        <entry id="8392043" symbol="configuration"/>
+        <entry field="true" id="50" symbol="AppName"/>
+        <entry field="true" id="8388963" symbol="altitude"/>
+        <entry field="true" id="24" symbol="oxygen"/>
+        <entry id="10" object="true" symbol="SmartTouristApp"/>
+        <entry id="8" module="true" symbol="globals/Rez/Strings"/>
+        <entry id="12" object="true" symbol="SmartTouristDelegate"/>
+        <entry id="8389080" method="true" symbol="onMenu"/>
+        <entry id="8388772" module="true" object="true" symbol="Fonts"/>
+        <entry id="15" object="true" symbol="SmartTouristView"/>
+        <entry id="8388648" module="true" symbol="WatchUi"/>
+        <entry id="44" method="true" symbol="sendData"/>
+        <entry id="8388822" method="true" symbol="setMailboxListener"/>
+        <entry id="2" module="true" symbol="globals/Rez"/>
+        <entry field="true" id="53" symbol="prompt"/>
+        <entry field="true" id="37" symbol="interval"/>
+        <entry id="8389124" method="true" symbol="onUpdate"/>
+        <entry field="true" id="8389065" symbol="locY"/>
+        <entry field="true" id="8389064" symbol="locX"/>
+        <entry id="8388771" module="true" object="true" symbol="Drawables"/>
+        <entry field="true" id="8389314" symbol="latitude"/>
+        <entry id="8389348" symbol="font"/>
+        <entry field="true" id="8389067" symbol="height"/>
+        <entry id="55" symbol="item_2"/>
+        <entry id="54" symbol="item_1"/>
+        <entry id="36" module="true" symbol="Menus"/>
+        <entry id="8389275" method="true" symbol="getApp"/>
+        <entry field="true" id="28" symbol="stringsSize"/>
+        <entry id="6" module="true" symbol="globals/Rez/Layouts"/>
+        <entry field="true" id="41" symbol="heartR"/>
+        <entry field="true" id="8389066" symbol="width"/>
+        <entry id="8389122" method="true" symbol="onLayout"/>
+        <entry field="true" id="19" symbol="hr"/>
+        <entry id="56" symbol="CONSTELLATION_GPS_GLONASS"/>
+        <entry field="true" id="8390041" method="true" symbol="mode"/>
+        <entry id="5" module="true" symbol="globals/Rez/JsonData"/>
+        <entry field="true" id="27" symbol="strings"/>
+        <entry field="true" id="26" symbol="phoneMethod"/>
+        <entry id="8388637" module="true" symbol="Communications"/>
+        <entry id="3" module="true" symbol="globals/Rez/Drawables"/>
+        <entry id="8388828" method="true" symbol="onError"/>
+        <entry id="49" object="true" symbol="MainMenu"/>
+        <entry id="8388699" method="true" symbol="stop"/>
+        <entry field="true" id="20" symbol="lastHr"/>
+        <entry field="true" id="8389305" symbol="lat"/>
+        <entry id="8388644" module="true" symbol="System"/>
+        <entry field="true" id="8389315" symbol="longitude"/>
+        <entry id="8388769" module="true" object="true" symbol="Rez"/>
+        <entry field="true" id="39" symbol="timeListener"/>
+        <entry field="true" id="42" symbol="startText"/>
+        <entry id="8388640" module="true" symbol="Lang"/>
+        <entry id="8390088" module="true" object="true" symbol="JsonData"/>
+        <entry field="true" id="47" symbol="LauncherIcon"/>
+        <entry id="9" object="true" symbol="CommListener"/>
+        <entry id="8388610" symbol="statics"/>
+        <entry field="true" id="8392041" symbol="CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5"/>
+        <entry id="8389123" method="true" symbol="onShow"/>
+        <entry id="8388643" module="true" symbol="Sensor"/>
+        <entry id="8389350" module="true" symbol="globals"/>
+        <entry field="true" id="40" symbol="transmitting"/>
+        <entry id="8388770" module="true" object="true" symbol="Strings"/>
+        <entry field="true" id="8388960" symbol="heartRate"/>
+        <entry id="38" method="true" symbol="onTick"/>
+        <entry id="8388702" method="true" symbol="initialize"/>
+        <entry id="8389279" method="true" symbol="onStart"/>
+        <entry id="8389864" method="true" symbol="setData"/>
+        <entry field="true" id="34" symbol="view"/>
+        <entry field="true" id="31" symbol="listener"/>
+        <entry id="46" method="true" symbol="onPhone"/>
+        <entry id="8389280" method="true" symbol="getInitialView"/>
+        <entry id="8389281" method="true" symbol="onStop"/>
+        <entry id="8389109" method="true" symbol="onMenuItem"/>
+        <entry id="8389347" symbol="color"/>
+        <entry field="true" id="16" symbol="altit"/>
+        <entry id="8389097" method="true" symbol="onKey"/>
+        <entry id="8388829" method="true" symbol="onComplete"/>
+        <entry id="35" module="true" symbol="Layouts"/>
+        <entry id="8388698" method="true" symbol="start"/>
+        <entry id="8388642" module="true" symbol="Position"/>
+        <entry id="14" object="true" symbol="SmartTouristMenuDelegate"/>
+        <entry id="45" method="true" symbol="onMail"/>
+        <entry id="4" module="true" symbol="globals/Rez/Fonts"/>
+        <entry id="11" object="true" symbol="SmartTouristDTO"/>
+        <entry field="true" id="18" symbol="hasDirectMessagingSupport"/>
+        <entry id="8389125" method="true" symbol="onHide"/>
+        <entry field="true" id="8391709" symbol="POSITIONING_MODE_AVIATION"/>
+        <entry field="true" id="21" symbol="longit"/>
+        <entry id="8388635" module="true" symbol="Application"/>
+        <entry field="true" id="52" symbol="menu_label_2"/>
+        <entry field="true" id="51" symbol="menu_label_1"/>
+    </symbolTable>
+    <localVars>
+        <entry arg="true" endPc="268435631" name="item" stackId="1" startPc="268435559"/>
+        <entry arg="true" endPc="268435885" name="info" stackId="1" startPc="268435762"/>
+        <entry endPc="268435884" name="myLocation" stackId="2" startPc="268435766"/>
+        <entry arg="true" endPc="268436505" name="SensorInfo" stackId="1" startPc="268435886"/>
+        <entry endPc="268436504" name="d" stackId="2" startPc="268435890"/>
+        <entry arg="true" endPc="268436627" name="view" stackId="1" startPc="268436506"/>
+        <entry arg="true" endPc="268437461" name="keyEvent" stackId="1" startPc="268436628"/>
+        <entry endPc="268437461" name="key" stackId="2" startPc="268436632"/>
+        <entry endPc="268437461" name="keyType" stackId="3" startPc="268436632"/>
+        <entry endPc="268437142" name="options" stackId="4" startPc="268436695"/>
+        <entry endPc="268437006" name="ex" stackId="5" startPc="268436978"/>
+        <entry endPc="268437452" name="options" stackId="6" startPc="268437146"/>
+        <entry endPc="268437651" name="smartTouristJsonObj" stackId="1" startPc="268437502"/>
+        <entry endPc="268437651" name="jsonDictionary" stackId="2" startPc="268437502"/>
+        <entry arg="true" endPc="268437851" name="interval" stackId="1" startPc="268437773"/>
+        <entry arg="true" endPc="268437851" name="listener" stackId="2" startPc="268437773"/>
+        <entry arg="true" endPc="268438421" name="dc" stackId="1" startPc="268438340"/>
+        <entry arg="true" endPc="268438525" name="dc" stackId="1" startPc="268438443"/>
+        <entry endPc="268438636" name="json" stackId="1" startPc="268438530"/>
+        <entry arg="true" endPc="268438699" name="altitude" stackId="1" startPc="268438637"/>
+        <entry arg="true" endPc="268438699" name="longitude" stackId="2" startPc="268438637"/>
+        <entry arg="true" endPc="268438699" name="latitude" stackId="3" startPc="268438637"/>
+        <entry arg="true" endPc="268438699" name="heartRate" stackId="4" startPc="268438637"/>
+        <entry arg="true" endPc="268438699" name="temperature" stackId="5" startPc="268438637"/>
+        <entry arg="true" endPc="268438699" name="oxygen" stackId="6" startPc="268438637"/>
+        <entry endPc="268438806" name="view" stackId="1" startPc="268438726"/>
+        <entry arg="true" endPc="268438985" name="mailIter" stackId="1" startPc="268438807"/>
+        <entry endPc="268438984" name="mail" stackId="2" startPc="268438811"/>
+        <entry endPc="268438949" name="i" stackId="3" startPc="268438831"/>
+        <entry arg="true" endPc="268439341" name="msg" stackId="1" startPc="268439152"/>
+        <entry endPc="268439340" name="i" stackId="2" startPc="268439156"/>
+        <entry arg="true" endPc="268439358" name="dc" stackId="1" startPc="268439342"/>
+    </localVars>
+    <annotations>
+        <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="menu_label_2"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="menu_label_1"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="prompt"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
+    </annotations>
+    <dataEntryOffsetMappings>
+        <dataEntry label="globals" offset="87" parentId="" symbolId="globals" type="module"/>
+        <dataEntry label="globals/SmartTouristMenuDelegate" offset="661" parentId="globals" symbolId="SmartTouristMenuDelegate" type="class"/>
+        <dataEntry label="globals/SmartTouristDelegate" offset="716" parentId="globals" symbolId="SmartTouristDelegate" type="class"/>
+        <dataEntry label="globals/Rez" offset="827" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry label="globals/SmartTouristHub" offset="906" parentId="globals" symbolId="SmartTouristHub" type="class"/>
+        <dataEntry label="globals/CommListener" offset="1017" parentId="globals" symbolId="CommListener" type="class"/>
+        <dataEntry label="globals/SmartTouristView" offset="1080" parentId="globals" symbolId="SmartTouristView" type="class"/>
+        <dataEntry label="globals/SmartTouristDTO" offset="1199" parentId="globals" symbolId="SmartTouristDTO" type="class"/>
+        <dataEntry label="globals/SmartTouristApp" offset="1302" parentId="globals" symbolId="SmartTouristApp" type="class"/>
+        <dataEntry label="globals/Rez/Drawables" offset="1389" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry label="globals/Rez/Layouts" offset="1428" parentId="Rez" symbolId="Layouts" type="module"/>
+        <dataEntry label="globals/Rez/Menus" offset="1467" parentId="Rez" symbolId="Menus" type="module"/>
+        <dataEntry label="globals/Rez/Fonts" offset="1506" parentId="Rez" symbolId="Fonts" type="module"/>
+        <dataEntry label="globals/Rez/Strings" offset="1537" parentId="Rez" symbolId="Strings" type="module"/>
+        <dataEntry label="globals/Rez/JsonData" offset="1600" parentId="Rez" symbolId="JsonData" type="module"/>
+        <dataEntry label="globals/Rez/Menus/MainMenu" offset="1631" parentId="Menus" symbolId="MainMenu" type="class"/>
+    </dataEntryOffsetMappings>
+    <functions>
+        <functionEntry accessMode="public" endPc="268435558" name="&lt;init&gt;" parent="SmartTouristMenuDelegate" startPc="268435540">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435631" name="onMenuItem" parent="SmartTouristMenuDelegate" startPc="268435559">
+            <param id="item"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435652" name="initialize" parent="SmartTouristMenuDelegate" startPc="268435632">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435671" name="&lt;init&gt;" parent="SmartTouristDelegate" startPc="268435653">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435761" name="onMenu" parent="SmartTouristDelegate" startPc="268435672">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435885" name="onPosition" parent="SmartTouristDelegate" startPc="268435762">
+            <param id="info"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436505" name="setData" parent="SmartTouristDelegate" startPc="268435886">
+            <param id="SensorInfo"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436627" name="initialize" parent="SmartTouristDelegate" startPc="268436506">
+            <param id="view"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437461" name="onKey" parent="SmartTouristDelegate" startPc="268436628">
+            <param id="keyEvent"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437485" name="&lt;init&gt;" parent="Rez" startPc="268437462">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="SmartTouristHub">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437655" name="onTick" parent="SmartTouristHub" startPc="268437486">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437700" name="stop" parent="SmartTouristHub" startPc="268437656">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437772" name="start" parent="SmartTouristHub" startPc="268437701">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437851" name="initialize" parent="SmartTouristHub" startPc="268437773">
+            <param id="interval"/>
+            <param id="listener"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437877" name="getApp" startPc="268437852">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437896" name="&lt;init&gt;" parent="CommListener" startPc="268437878">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437920" name="onError" parent="CommListener" startPc="268437897">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437944" name="onComplete" parent="CommListener" startPc="268437921">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437969" name="initialize" parent="CommListener" startPc="268437945">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437988" name="&lt;init&gt;" parent="SmartTouristView" startPc="268437970">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438339" name="onShow" parent="SmartTouristView" startPc="268437989">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438421" name="onLayout" parent="SmartTouristView" startPc="268438340">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438442" name="initialize" parent="SmartTouristView" startPc="268438422">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onHide" parent="SmartTouristView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438525" name="onUpdate" parent="SmartTouristView" startPc="268438443">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="SmartTouristDTO">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438636" name="sendData" parent="SmartTouristDTO" startPc="268438526">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438699" name="initialize" parent="SmartTouristDTO" startPc="268438637">
+            <param id="altitude"/>
+            <param id="longitude"/>
+            <param id="latitude"/>
+            <param id="heartRate"/>
+            <param id="temperature"/>
+            <param id="oxygen"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438718" name="&lt;init&gt;" parent="SmartTouristApp" startPc="268438700">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438721" name="onStart" parent="SmartTouristApp" startPc="268438719">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438806" name="getInitialView" parent="SmartTouristApp" startPc="268438722">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438985" name="onMail" parent="SmartTouristApp" startPc="268438807">
+            <param id="mailIter"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439148" name="initialize" parent="SmartTouristApp" startPc="268438986">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439151" name="onStop" parent="SmartTouristApp" startPc="268439149">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439341" name="onPhone" parent="SmartTouristApp" startPc="268439152">
+            <param id="msg"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Drawables">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Layouts">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Menus">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Fonts">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="JsonData">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439358" name="MainLayout" parent="Layouts" startPc="268439342">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439377" name="&lt;init&gt;" parent="MainMenu" startPc="268439359">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439510" name="initialize" parent="MainMenu" startPc="268439378">
+            <documentation/>
+        </functionEntry>
+    </functions>
+</debugInfo>
