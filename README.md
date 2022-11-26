@@ -15,3 +15,7 @@ ConnectIQ connectIQ = ConnectIQ.getInstance(ConnectIQ.IQConnectType.<protocol>);
 ```
 , where ```<protocol>``` is ```WIRELESS``` (for BLE communication, which is also default), ```TETHERED``` for debugging with usb.
 
+How to use the app:
+
+Press top right button on the watch or simulated watch to start getting heart rate etc. Press the same button to stop.
+
