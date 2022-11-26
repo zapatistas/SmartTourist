@@ -1,6 +1,6 @@
 # SmartTourist
 
-A Garmin device app for fenix 6/fenix 6 pro Solar smartwtch.
+A Garmin device app for fenix 6/fenix 6 pro Solar smartwatch.
 It enables heart rate, gps location, altitude, accelerometer, temperature and oxygen transmition to a companion mobile app.
 
 To use the Garmin simulator, download the Connect IQ SDK from [here](https://developer.garmin.com/connect-iq/sdk/)
