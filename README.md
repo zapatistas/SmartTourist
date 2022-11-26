@@ -17,5 +17,5 @@ ConnectIQ connectIQ = ConnectIQ.getInstance(ConnectIQ.IQConnectType.<protocol>);
 
 How to use the app:
 
-Press top right button on the watch or simulated watch to start getting heart rate etc. Press the same button to stop.
+Press top right button on the watch or simulated watch to start getting heart rate etc. The obtained heart rate will be displayed on the screen. If a heart rate is not detected a '-' symbol will be displayed. This means that the watch needs to be readjusted in order to detect the user's heart rate. Press the same button to stop the process.
 
