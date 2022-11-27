@@ -204,10 +204,10 @@ class  SmartTouristDTO {
         self.oxygen = oxygen;
     }
 
-    function sendData(){
+    function toDict(){
 
-        var json = { "Altitude" => self.altitude, "Longitude" => self.longitude, "Latitude" => self.latitude,
-                "Heart Rate" => self.heartRate, "Temperature" => self.temperature, "Oxygen" => self.oxygen};
+        var json = { "altitude" => self.altitude, "longitude" => self.longitude, "latitude" => self.latitude,
+                "heart_rate" => self.heartRate, "temperature" => self.temperature, "oxygen" => self.oxygen};
 
         return json;
     }
@@ -241,9 +241,9 @@ class SmartTouristHub{
             self.transmitting = true;
             
             var smartTouristJsonObj = new SmartTouristDTO($.altit,$.longit,$.lat,$.hr,$.temp,$.oxygen);
-            var jsonDictionary = smartTouristJsonObj.sendData();
-            
+            var jsonDictionary = smartTouristJsonObj.toDict();
             Communications.transmit(jsonDictionary, null, self.timeListener);
+            self.transmitting = false;
         }
     }
     function stop(){
