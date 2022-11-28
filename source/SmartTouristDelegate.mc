@@ -18,8 +18,11 @@ var lastHr;
 
 
 class CommListener extends Communications.ConnectionListener {
-    function initialize() {
+    // var delegate;
+
+    function initialize(smDel) {
         Communications.ConnectionListener.initialize();
+        // self.delegate = smDel;
     }
 
     function onComplete() {
@@ -28,6 +31,7 @@ class CommListener extends Communications.ConnectionListener {
 
     function onError() {
         System.println("Transmit Failed");
+        // self.delegate.disableSensors();
     }
 }
 
@@ -41,7 +45,7 @@ class SmartTouristDelegate extends WatchUi.BehaviorDelegate {
     function initialize(view) {
         self.view = view;
         self.isRunning = false;
-        self.listener = new CommListener();
+        self.listener = new CommListener(self);
         self.timer = new SmartTouristHub(2000,self.listener);
         BehaviorDelegate.initialize();
     }
@@ -53,74 +57,15 @@ class SmartTouristDelegate extends WatchUi.BehaviorDelegate {
         if (key == WatchUi.KEY_ENTER and keyType == WatchUi.PRESS_TYPE_ACTION){
             if (!self.isRunning){ 
                 // Sensor.setEnabledSensors( [Sensor.SENSOR_HEARTRATE,Sensor.SENSOR_PULSE_OXIMETRY,Sensor.SENSOR_TEMPERATURE] );\
-                Sensor.enableSensorType(Sensor.SENSOR_HEARTRATE);
-                Sensor.enableSensorType(Sensor.SENSOR_PULSE_OXIMETRY);
-                Sensor.enableSensorType(Sensor.SENSOR_TEMPERATURE);
-                Sensor.enableSensorEvents( method( :setData ) );
-
-                var options = {
-                    :acquisitionType => Position.LOCATION_CONTINUOUS
-                };
-
-                if (Position has :POSITIONING_MODE_AVIATION) {
-                    options[:mode] = Position.POSITIONING_MODE_AVIATION;
-                }
-
-                if (Position has :CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5) {
-                    options[:configuration] = :CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5;
-                } else if (Position has :CONSTELLATION_GPS_GLONASS) {
-                    options[:constellations] = [ Position.CONSTELLATION_GPS, Position.CONSTELLATION_GLONASS ];
-                } else {
-                    options = Position.LOCATION_CONTINUOUS;
-                }
-
-                // Continuous location updates using selected options
-                try{
-                    Position.enableLocationEvents(options, method(:onPosition));
-                }
-                catch (ex){
-                    System.println(ex);
-                }
-                
-                // Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:self.onPosition));
-                self.view.startText.setText("Stop");
-                self.view.stringHr.setText("Heart rate:");
-                self.view.heartR.setText("-");
-                self.isRunning = true;
-                WatchUi.requestUpdate();
-                self.timer.start();
+               enableSensors();
             }
             else{
-                self.view.startText.setText("Start");
-                Sensor.disableSensorType(Sensor.SENSOR_HEARTRATE);
-                Sensor.disableSensorType(Sensor.SENSOR_PULSE_OXIMETRY);
-                Sensor.disableSensorType(Sensor.SENSOR_TEMPERATURE);
-                Sensor.enableSensorEvents(null); 
-                var options = {:acquisitionType => Position.LOCATION_DISABLE} ;
-                Position.enableLocationEvents(options, method(:onPosition));
-                          
-                self.isRunning = false;
-                $.lastHr = $.hr;
-                $.hr = 0;
-                self.view.stringHr.setText("");
-                self.view.heartR.setText("");
-                WatchUi.requestUpdate();
-                self.timer.stop();
+                disableSensors();
             }
 
             return true;
         }
         return false;
-    }
-
-
-    function onPosition(info as Position.Info) as Void {
-        var myLocation = info.position.toDegrees();
-        
-        $.lat = myLocation[0];
-        $.longit = myLocation[1];
-        System.println("Latitude: " + myLocation[0]); // e.g. 38.856147
-        System.println("Longitude: " + myLocation[1]); // e.g -94.800953
     }
 
     function setData(SensorInfo as Sensor.Info) as Void{
@@ -169,14 +114,79 @@ class SmartTouristDelegate extends WatchUi.BehaviorDelegate {
         
     }
 
-    // function setData(sensorData as SensorData) as Void{
-    //     var d = sensorData;
-    //     if (sensorData has :heartRateData && sensorData.heartRateData != null) {
-    //       $.hr = sensorData.heartRateData.heartBeatIntervals;
-    //       $.gps = sensorData.accelerometerData.
-    //     }
-    //     System.println(sensorData.heartRateData.heartBeatIntervals);
-    // }
+    function onPosition(info as Position.Info) as Void {
+        System.println("GPS quality " + info.accuracy);
+        var myLocation = info.position.toDegrees();
+        $.lat = myLocation[0];
+        $.longit = myLocation[1];
+        System.println("Latitude: " + myLocation[0]); // e.g. 38.856147
+        System.println("Longitude: " + myLocation[1]); // e.g -94.800953
+    }
+
+
+    function enableSensors(){
+        Sensor.enableSensorType(Sensor.SENSOR_HEARTRATE);
+        Sensor.enableSensorType(Sensor.SENSOR_PULSE_OXIMETRY);
+        Sensor.enableSensorType(Sensor.SENSOR_TEMPERATURE);
+        Sensor.enableSensorEvents( method( :setData ) );
+
+        var options = {
+            :acquisitionType => Position.LOCATION_CONTINUOUS
+        };
+
+        if (Position has :POSITIONING_MODE_AVIATION) {
+            options[:mode] = Position.POSITIONING_MODE_AVIATION;
+        }
+
+        if (Position has :CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5) {
+            options[:configuration] = :CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5;
+        } else if (Position has :CONSTELLATION_GPS_GLONASS) {
+            options[:constellations] = [ Position.CONSTELLATION_GPS, Position.CONSTELLATION_GLONASS ];
+        }else if (Position has :CONSTELLATION_GPS) {
+            options[:constellations] = [ Position.CONSTELLATION_GPS];
+        }
+        else {
+            options = Position.LOCATION_CONTINUOUS;
+        }
+        
+        // Continuous location updates using selected options
+        try{
+            // System.println(options);
+            Position.enableLocationEvents(options, method(:onPosition));
+        }
+        catch (ex){
+            System.println(ex);
+        }
+        
+        // Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:self.onPosition));
+        self.view.startText.setText("Stop");
+        self.view.stringHr.setText("Heart rate:");
+        self.view.heartR.setText("-");
+        self.isRunning = true;
+        WatchUi.requestUpdate();
+        // System.println("Enable sensors");
+        self.timer.start();
+       
+    }
+
+    function disableSensors(){
+        self.view.startText.setText("Start");
+        Sensor.disableSensorType(Sensor.SENSOR_HEARTRATE);
+        Sensor.disableSensorType(Sensor.SENSOR_PULSE_OXIMETRY);
+        Sensor.disableSensorType(Sensor.SENSOR_TEMPERATURE);
+        Sensor.enableSensorEvents(null); 
+        var options = {:acquisitionType => Position.LOCATION_DISABLE} ;
+        Position.enableLocationEvents(options, method(:onPosition));
+        // System.println("Disable sensors");
+        self.isRunning = false;
+        $.lastHr = $.hr;
+        $.hr = 0;
+        self.view.stringHr.setText("");
+        self.view.heartR.setText("");
+        WatchUi.requestUpdate();
+        self.timer.stop();
+        
+    }
 
     function onMenu() as Boolean {
         WatchUi.pushView(new Rez.Menus.MainMenu(), new SmartTouristMenuDelegate(), WatchUi.SLIDE_UP);
@@ -234,6 +244,7 @@ class SmartTouristHub{
         if(!self.isRunning){
             self.timer.start(method(:onTick),interval,true);
             self.isRunning = true;
+            // System.println("Timer started");
         }
     }
     function onTick(){
@@ -242,6 +253,7 @@ class SmartTouristHub{
             
             var smartTouristJsonObj = new SmartTouristDTO($.altit,$.longit,$.lat,$.hr,$.temp,$.oxygen);
             var jsonDictionary = smartTouristJsonObj.toDict();
+            System.println(jsonDictionary);
             Communications.transmit(jsonDictionary, null, self.timeListener);
             self.transmitting = false;
         }
@@ -250,6 +262,7 @@ class SmartTouristHub{
         if(isRunning){
             timer.stop();
             self.isRunning = false;
+            // System.println("Timer Stopped");
         }
 
     }
