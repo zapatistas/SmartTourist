@@ -15,13 +15,33 @@ var lat;
 var longit;
 var altit;
 var oxygen;
+var heading;
+var cadence;
+var power;
+var pressure;
+var sensorInfo;
+var gpsHeading;
+var gpsSpeed;
+var gpsTime;
 var lastHr;
+var lastGpsQuality;
 var hasDirectMessagingSupport = true;
 var mailMethod;
 var phoneMethod;
 var START = "start";
 var STOP = "stop";
 var CRASH = "crash";
+var NOT_AVAILABLE = "NOT_AVAILABLE";
+var LAST_KNOWN = "LAST_KNOWN";
+var POOR = "POOR";
+var USABLE = "USABLE";
+var GOOD = "GOOD";
+var intNotAvailable = 0 ;
+var intLastKnown = 1 ;
+var intPoor = 2;
+var intUsable = 3;
+var intGood = 4;
+
 
 class CommListener extends Communications.ConnectionListener {
     // var delegate;
@@ -55,7 +75,7 @@ class SmartTouristDelegate extends WatchUi.BehaviorDelegate {
         self.view = view;
         self.isRunning = false;
         self.listener = new CommListener(self);
-        self.timer = new SmartTouristHub(1000,self.listener);
+        self.timer = new SmartTouristHub(2000,self.listener);
         mailMethod = method(:onMail);
         phoneMethod = method(:onPhone);
         if(Communications has :registerForPhoneAppMessages) {
@@ -128,12 +148,16 @@ class SmartTouristDelegate extends WatchUi.BehaviorDelegate {
                 $.oxygen = d.oxygenSaturation;
             }
 
-        
-            System.println("Temperature " + $.temp);
-            System.println("Altitude " + $.altit);
-            System.println("Magnometer " + $.magno);
-            System.println("Oxygen saturation " + $.oxygen);
-            System.println("Accelerometer " + $.accel);
+            $.cadence = d.cadence;
+            $.power = d.power;
+            $.pressure = d.pressure;
+            $.heading = d.heading;
+           
+            // System.println("Temperature " + $.temp);
+            // System.println("Altitude " + $.altit);
+            // System.println("Magnometer " + $.magno);
+            // System.println("Oxygen saturation " + $.oxygen);
+            // System.println("Accelerometer " + $.accel);
         }
         
     }
@@ -141,10 +165,31 @@ class SmartTouristDelegate extends WatchUi.BehaviorDelegate {
     function onPosition(info as Position.Info) as Void {
         // Handle gps latitude and longitude 
         // TODO: Maybe send GPS quality in the future as well
-        System.println("GPS quality " + info.accuracy);
+        
         var myLocation = info.position.toDegrees();
         $.lat = myLocation[0];
         $.longit = myLocation[1];
+        $.gpsHeading = info.heading;
+        // $.gpsTime = info.when.mDateTime;
+        $.gpsSpeed = info.speed;
+
+        if ( info.accuracy == $.intNotAvailable){
+            $.lastGpsQuality = NOT_AVAILABLE;
+        }
+        else if ( info.accuracy == $.intLastKnown){
+            $.lastGpsQuality = LAST_KNOWN;
+        }
+        else if ( info.accuracy == $.intPoor){
+            $.lastGpsQuality = POOR;
+        }
+        else if ( info.accuracy == $.intUsable){
+            $.lastGpsQuality = USABLE;
+        }
+        else if ( info.accuracy == $.intGood){
+            $.lastGpsQuality = GOOD;
+        }
+
+        System.println("GPS quality " + $.lastGpsQuality);
         System.println("Latitude: " + myLocation[0]); // e.g. 38.856147
         System.println("Longitude: " + myLocation[1]); // e.g -94.800953
     }
@@ -163,29 +208,29 @@ class SmartTouristDelegate extends WatchUi.BehaviorDelegate {
         
         Sensor.enableSensorEvents( method( :setData ) );
 
-        // var options = {
-        //     :acquisitionType => Position.LOCATION_CONTINUOUS
-        // };
+        var options = {
+            :acquisitionType => Position.LOCATION_CONTINUOUS
+        };
 
-        // if (Position has :POSITIONING_MODE_AVIATION) {
-        //     options[:mode] = Position.POSITIONING_MODE_AVIATION;
-        // }
-       
-        // if (Position has :CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5) {
-        //     options[:configuration] = Position.CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5;
-        // } else if (Position has :CONSTELLATION_GPS_GLONASS) {
-        //     options[:constellations] = [ Position.CONSTELLATION_GPS, Position.CONSTELLATION_GLONASS ];            
-        // } else{
-        //     options = Position.LOCATION_CONTINUOUS;
-        // }
+        if (Position has :POSITIONING_MODE_AVIATION) {
+            options[:mode] = Position.POSITIONING_MODE_AVIATION;
+        }
         
-        var options = Position.LOCATION_CONTINUOUS;
-        
+        if ( Position has :CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5 &&
+             Position has :hasConfigurationSupport &&
+             Position.hasConfigurationSupport(Position.CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5))
+        {
+            options[:configuration] = Position.CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5;
+        } else if (Position has :CONSTELLATION_GPS_GLONASS) {
+            options[:constellations] = [ Position.CONSTELLATION_GPS, Position.CONSTELLATION_GLONASS ];            
+        } else{
+            options = Position.LOCATION_CONTINUOUS;
+        }
+         
         // Continuous location updates using selected options
         try{
             
             Position.enableLocationEvents(options, method(:onPosition));
-            System.println("Position enabled");
         }
         catch (ex){
             System.println(ex.getErrorMessage());
@@ -198,7 +243,6 @@ class SmartTouristDelegate extends WatchUi.BehaviorDelegate {
         self.view.heartR.setText("-");
         self.isRunning = true;
         WatchUi.requestUpdate();
-        // System.println("Enable sensors");
         self.timer.start();
        
     }
@@ -277,23 +321,44 @@ class  SmartTouristDTO {
     public var oxygen;
     public var accelerometer;
     public var magnetometer;
+    public var gpsQuality;
+    public var gpsAccuracy = 7.5;
+    public var gpsSpeed;
+    public var gpsHeading;
+    public var gpsTime;
+    public var cadence;
+    public var power;
+    public var pressure;
+    public var heading;
 
-    function initialize(altitude, longitude, latitude, heartRate, temperature, oxygen, accelerometer, magnetometer){
+    function initialize(altitude, longitude, latitude, heartRate, temperature, oxygen, accelerometer, magnetometer, gpsQuality){//, gpsSpeed, gpsHeading){
         self.altitude = altitude;
         self.longitude = longitude;
         self.latitude = latitude;
         self.heartRate = heartRate;
         self.temperature = temperature;
         self.oxygen = oxygen;
+        // self.cadence = cadence;
+        // self.power = power;
+        // self.pressure = pressure;
+        // self.heading = heading;
         self.accelerometer = accelerometer;
         self.magnetometer = magnetometer;
+        self.gpsQuality = gpsQuality;
+        self.gpsSpeed = gpsSpeed;
+        self.gpsHeading = gpsHeading;
+        // self.gpsTime = gpsTime;
+       
     }
 
     function toDict(){
 
         var json = { "altitude" => self.altitude, "longitude" => self.longitude, "latitude" => self.latitude,
-                "heart_rate" => self.heartRate, "temperature" => self.temperature, "oxygen" => self.oxygen, 
-                "accelerometer" => self.accelerometer, "magnetometer" => self.magnetometer};
+                "heart_rate" => self.heartRate, "temperature" => self.temperature, "oxygen" => self.oxygen,
+                // "cadence" => self.cadence, "power" => self.power,  "heading" => self.heading,"pressure" => self.pressure,
+                "accelerometer" => self.accelerometer, "magnetometer" => self.magnetometer, "gpsQuality" => self.gpsQuality,
+                "gpsAccuracy" => self.gpsAccuracy};//, "gpsSpeed" => self.gpsSpeed, "gpsHeading" => self.gpsHeading};
+                //"gpsTime" => self.gpsTime};
 
         return json;
     }
@@ -325,9 +390,9 @@ class SmartTouristHub{
     }
     function onTick(){
         if(!self.transmitting){
-            self.transmitting = true;
-            
-            var smartTouristJsonObj = new SmartTouristDTO($.altit,$.longit,$.lat,$.hr,$.temp,$.oxygen,$.accel,$.magno);
+            self.transmitting = true; //$.cadence, $.power, $.pressure, $.heading,
+            var smartTouristJsonObj = new SmartTouristDTO($.altit,$.longit,$.lat,$.hr,$.temp,$.oxygen, $.accel, $.magno, $.lastGpsQuality);//, $.gpsSpeed, $.gpsHeading);//, $.gpsTime);
+
             var jsonDictionary = smartTouristJsonObj.toDict();
             // System.println(jsonDictionary);
 
