@@ -55,7 +55,7 @@ class SmartTouristDelegate extends WatchUi.BehaviorDelegate {
         self.view = view;
         self.isRunning = false;
         self.listener = new CommListener(self);
-        self.timer = new SmartTouristHub(2000,self.listener);
+        self.timer = new SmartTouristHub(1000,self.listener);
         mailMethod = method(:onMail);
         phoneMethod = method(:onPhone);
         if(Communications has :registerForPhoneAppMessages) {
@@ -152,37 +152,44 @@ class SmartTouristDelegate extends WatchUi.BehaviorDelegate {
 
     function enableSensors(){
         // Enabling sensors and gps location. Right now heart rate, oxygen and temperature sensors are enabled one by one to avoid bugs created from Sensor.setEnabledSensors()
-        Sensor.enableSensorType(Sensor.SENSOR_HEARTRATE);
-        Sensor.enableSensorType(Sensor.SENSOR_PULSE_OXIMETRY);
-        Sensor.enableSensorType(Sensor.SENSOR_TEMPERATURE);
+        
+        if (Sensor has :enableSensorType){
+            Sensor.enableSensorType(Sensor.SENSOR_HEARTRATE);
+            Sensor.enableSensorType(Sensor.SENSOR_PULSE_OXIMETRY);
+            Sensor.enableSensorType(Sensor.SENSOR_TEMPERATURE);
+        }else{
+            Sensor.setEnabledSensors([Sensor.SENSOR_HEARTRATE,Sensor.SENSOR_PULSE_OXIMETRY,Sensor.SENSOR_TEMPERATURE]);
+        }
+        
         Sensor.enableSensorEvents( method( :setData ) );
 
-        var options = {
-            :acquisitionType => Position.LOCATION_CONTINUOUS
-        };
+        // var options = {
+        //     :acquisitionType => Position.LOCATION_CONTINUOUS
+        // };
 
-        if (Position has :POSITIONING_MODE_AVIATION) {
-            options[:mode] = Position.POSITIONING_MODE_AVIATION;
-        }
-
-        if (Position has :CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5) {
-            options[:configuration] = :CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5;
-        } else if (Position has :CONSTELLATION_GPS_GLONASS) {
-            options[:constellations] = [ Position.CONSTELLATION_GPS, Position.CONSTELLATION_GLONASS ];
-        }else if (Position has :CONSTELLATION_GPS) {
-            options[:constellations] = [ Position.CONSTELLATION_GPS];
-        }
-        else {
-            options = Position.LOCATION_CONTINUOUS;
-        }
+        // if (Position has :POSITIONING_MODE_AVIATION) {
+        //     options[:mode] = Position.POSITIONING_MODE_AVIATION;
+        // }
+       
+        // if (Position has :CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5) {
+        //     options[:configuration] = Position.CONFIGURATION_GPS_GLONASS_GALILEO_BEIDOU_L1_L5;
+        // } else if (Position has :CONSTELLATION_GPS_GLONASS) {
+        //     options[:constellations] = [ Position.CONSTELLATION_GPS, Position.CONSTELLATION_GLONASS ];            
+        // } else{
+        //     options = Position.LOCATION_CONTINUOUS;
+        // }
+        
+        var options = Position.LOCATION_CONTINUOUS;
         
         // Continuous location updates using selected options
         try{
-           
+            
             Position.enableLocationEvents(options, method(:onPosition));
+            System.println("Position enabled");
         }
         catch (ex){
-            System.println(ex);
+            System.println(ex.getErrorMessage());
+            System.println("Position not enabled");
         }
         
         // Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:self.onPosition));
@@ -198,9 +205,14 @@ class SmartTouristDelegate extends WatchUi.BehaviorDelegate {
 
     function disableSensors(){
         self.view.startText.setText("Start");
-        Sensor.disableSensorType(Sensor.SENSOR_HEARTRATE);
-        Sensor.disableSensorType(Sensor.SENSOR_PULSE_OXIMETRY);
-        Sensor.disableSensorType(Sensor.SENSOR_TEMPERATURE);
+        if (Sensor has :enableSensorType){
+            Sensor.disableSensorType(Sensor.SENSOR_HEARTRATE);
+            Sensor.disableSensorType(Sensor.SENSOR_PULSE_OXIMETRY);
+            Sensor.disableSensorType(Sensor.SENSOR_TEMPERATURE);
+        }else{
+            Sensor.setEnabledSensors([]);
+        }
+        
         Sensor.enableSensorEvents(null); 
         var options = {:acquisitionType => Position.LOCATION_DISABLE} ;
         Position.enableLocationEvents(options, method(:onPosition));
